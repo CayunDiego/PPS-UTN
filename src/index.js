@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom'
+import { FirebaseAppProvider } from 'reactfire'
+import firebaseConfig from './services/firebase-config'
+
+import Spinner from './components/Spinner'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+        <Suspense fallback={<Spinner/>}>
+           <App />
+        </Suspense>
+      </FirebaseAppProvider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
