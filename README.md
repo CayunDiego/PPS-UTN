@@ -1,4 +1,4 @@
-# Buscador de películas online
+# Monitoreo ciudadano de obras publicas.
 Monitoreo ciudadano de obras publicas.
 Brindar información para administrar el estado de las obras/espacios públicos, con el fin de llevar el doble control entre Municipalidad y el ciudadano, agilizando las denuncias y posteriores soluciones.
 [Web application]()
