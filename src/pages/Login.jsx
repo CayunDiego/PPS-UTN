@@ -8,6 +8,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+
     const firebase = useFirebaseApp();
     const user = useUser();
 
@@ -19,7 +20,7 @@ const Login = () => {
     return ( 
         <div>
             ESTO ES EL LOGIN
-
+          
             <div>
                 <label htmlFor="email">Correo Electrónico</label>
                 <input type="email" name="email" id="email" onChange={ ev => setEmail(ev.target.value)}/>

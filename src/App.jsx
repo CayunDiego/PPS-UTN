@@ -10,7 +10,8 @@ import IndexConLogin from './pages/IndexConLogin'
 import Denuncia from './pages/Denuncia';
 import Login from './pages/Login';
 //import Auth from './services/Auth'
-import SignIn from './services/SignIn'
+import SignIn from './pages/SignIn'
+import EditUser from './pages/EditUser'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
             
             }>
             <Route exact path="/" component={IndexConLogin}/>
+            <Route exact path="/edituser/" component={EditUser}/>
           </AuthCheck>
         </Switch>
       </div>
