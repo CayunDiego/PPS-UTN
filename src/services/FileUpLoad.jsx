@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useStorage } from 'reactfire';
 
 
-const FileUpLoad = ({setUserPhoto}) => {
+const FileUpLoad = ({setUpload}) => {
     const [ progress, setProgress ] = useState(0);
     const [ image, setImage ] = useState(null);
     const [ url, setUrl ] = useState("");
@@ -36,7 +36,7 @@ const FileUpLoad = ({setUserPhoto}) => {
             }, async () => {
                 const downloadUrl = await storage.ref("imagenPerfil").child(image.name).getDownloadURL();
                 setUrl(downloadUrl);
-                setUserPhoto(downloadUrl);
+                setUpload(downloadUrl);
                 setProgress(0);
             });
         } else {
@@ -54,7 +54,9 @@ const FileUpLoad = ({setUserPhoto}) => {
             <button onClick={handleUpload}>Subir</button>
             <br/>
             { 
-                url ? (<img src={url} alt="imagen"/>): (<img src="https://image.freepik.com/iconos-gratis/cargar-documento_318-8461.jpg" alt="imagen"/>)
+                url 
+                    ? (<img src={url} alt="imagen" height="42" width="42"/>)
+                    : (<img src="https://image.freepik.com/iconos-gratis/cargar-documento_318-8461.jpg" alt="imagen" height="42"/> )
             }
             <div>
                 <p>{error}</p>

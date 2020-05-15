@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonCustom from '../components/Button'
 import { Link } from 'react-router-dom';
 
-const indexSinLogin = () => {
+const IndexWithoutLogin = () => {
     return ( 
         <div>
             <h1>SOY EL HOME U. NO LOGUEADO</h1>
@@ -13,4 +13,4 @@ const indexSinLogin = () => {
      );
 }
  
-export default indexSinLogin;
+export default IndexWithoutLogin;

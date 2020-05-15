@@ -5,13 +5,11 @@ import theme from './assets/themeConfig';
 import { Route , Switch } from 'react-router-dom';
 import { AuthCheck } from 'reactfire'
 
-import IndexSinLogin from './pages/IndexSinLogin';
-import IndexConLogin from './pages/IndexConLogin'
+import IndexWithoutLogin from './pages/IndexWithoutLogin';
+import IndexWithLogin from './pages/IndexWithLogin'
 import Denuncia from './pages/Denuncia';
-import Login from './pages/Login';
-//import Auth from './services/Auth'
-import SignIn from './pages/SignIn'
-import EditUser from './pages/EditUser'
+import Profile from './pages/Profile'
+import Auth from './components/Auth'
 
 function App() {
 
@@ -21,15 +19,14 @@ function App() {
         <Switch>
           <AuthCheck fallback={ 
               <Fragment>
-                <Route exact path="/" component={IndexSinLogin}/>
+                <Route exact path="/" component={IndexWithoutLogin}/>
                 <Route exact path="/denuncia/" component={Denuncia}/>
-                <Route exact path="/login/" component={Login}/>
-                <Route exact path="/signin/" component={SignIn}/>
+                <Route exact path="/signin/" component={ () => <Auth type='signin'/>}/>
+                <Route exact path="/login/" component={ () => <Auth type='login'/>}/>
               </Fragment>
-            
             }>
-            <Route exact path="/" component={IndexConLogin}/>
-            <Route exact path="/edituser/" component={EditUser}/>
+            <Route exact path="/" component={IndexWithLogin}/>
+            <Route exact path="/profile/" component={Profile}/>
           </AuthCheck>
         </Switch>
       </div>
