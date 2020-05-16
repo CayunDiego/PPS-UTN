@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Button from '@material-ui/core/Button'
-
 //components
 import User from '../components/User';
 import EditUserName from '../components/EditUserName'

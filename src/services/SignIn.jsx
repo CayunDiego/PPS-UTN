@@ -20,11 +20,11 @@ const SignIn = ({email, password, username}) => {
                     photoURL: userPhotoURL
                 }).then(async function  () {
                     //Esto anda, pero debería ser con el componente de REACT
-                    window.location = '/';
+                    window.location = '/signin/';
                 }, function (error) {
                     console.log(`${error}Error happened`);
                 });
-                return (<Redirect to='/'/>)
+                return (<Redirect to='/signin'/>)
             } else {
               console.log('NO PASO NADA');
             }
@@ -36,7 +36,7 @@ const SignIn = ({email, password, username}) => {
             ESTO ES EL SIGN IN
             <button onClick={submit}>Crear cuenta</button>
             {
-                user && <Redirect to='/'/>
+                user && <Redirect to='/signin/'/>
             }
         </div>
      );

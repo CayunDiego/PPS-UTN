@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useFirebaseApp, useUser } from 'reactfire';
 
 
 const User = ({editData, editClicked, setEditClicked}) => {
     const firebase = useFirebaseApp();
     const user = useUser();
-    
+
     useEffect(() =>{
         const setInfo = () =>{
             if(editData.displayName !== ''){
@@ -13,28 +13,22 @@ const User = ({editData, editClicked, setEditClicked}) => {
                     displayName: editData.displayName
                   }).then(function() {
                     // Update successful.
-                    console.log('UPDATE nombre')
-                    console.log(user.displayName)
                     setEditClicked(false);
                   }).catch(function(error) {
                     // An error happened.
                     console.log(`${error}Error happened`);
                   });
-                //setUserProfile({displayName: editData.displayName})
             }
             if(editData.photoURL !== ''){
                 firebase.auth().currentUser.updateProfile({
                     photoURL: editData.photoURL
                   }).then(function() {
                     // Update successful.
-                    console.log('UPDATE photo')
-                    console.log(user.photoURL)
                     setEditClicked(false);
                   }).catch(function(error) {
                     // An error happened.
                     console.log(`${error}Error happened`);
                   });
-                //setUserProfile({displayName: editData.displayName})
             }
            
         }

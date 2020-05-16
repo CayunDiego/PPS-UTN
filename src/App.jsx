@@ -10,6 +10,7 @@ import IndexWithLogin from './pages/IndexWithLogin'
 import Denuncia from './pages/Denuncia';
 import Profile from './pages/Profile'
 import Auth from './components/Auth'
+import SignInDataUpload from './services/SignInDataUpload'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             }>
             <Route exact path="/" component={IndexWithLogin}/>
             <Route exact path="/profile/" component={Profile}/>
+            <Route exact path="/signin/" component={SignInDataUpload}/>
           </AuthCheck>
         </Switch>
       </div>
