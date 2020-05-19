@@ -4,33 +4,10 @@ import  { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import UserPhoto from '../components/UserPhoto'
-
-import Copyright from '../components/Copyright'
-
-  const useStyles = makeStyles((theme) => ({
-    paper: {
-      marginTop: theme.spacing(8),
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    avatar: {
-      marginBotton: theme.spacing(2),
-      padding: 10
-    },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-  }));
+import UserPhoto from '../../components/UserPhoto'
 
 const SignInDataUpload = () => {
     const [redirect, setRedirect] = useState(false);
@@ -40,19 +17,11 @@ const SignInDataUpload = () => {
     const user = useUser();
     const db = useDatabase();
 
+    const classes = useStyles();
 
-    const click = async () => {
-        // e.preventDefault();
-        // console.log(e);
-        // const [nombre, apellido, documento] = e.target.elements;
-        // console.log(e.target.elements);
-        // const datosUser = {
-        //                     id: user.uid,
-        //                     nombre: nombre.value,
-        //                     apellido: apellido.value,
-        //                     documento: documento.value
-        //                   }
-       console.log('entro');
+
+    const handleSubmit = async e => {
+       e.preventDefault();
         const datosUser = {
                             id: user.uid,
                             nombre: nombre,
@@ -62,10 +31,6 @@ const SignInDataUpload = () => {
         await db.ref('/users').push(datosUser);
         setRedirect(true);
     }
-    
-
-    const classes = useStyles();
-
 
     return ( 
       <Suspense>
@@ -75,14 +40,15 @@ const SignInDataUpload = () => {
                 <div className={classes.avatar}>
                     <UserPhoto />
                 </div>
+                <Typography component="h2" variant="h5">
+                  Bienvenido 
+                </Typography>
                 <Typography component="h2" variant="h4">
-                Bienvenido {user.displayName}
+                  {user.displayName}
                 </Typography>
                 {!redirect &&
-                     
-                        <div >
+                        <form className={classes.form} onSubmit={handleSubmit}>
                             <TextField
-                                variant="outlined"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -95,7 +61,6 @@ const SignInDataUpload = () => {
                                 onChange={ ev => setnombre(ev.target.value)}
                             />
                             <TextField
-                                variant="outlined"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -107,7 +72,6 @@ const SignInDataUpload = () => {
                                 onChange={ ev => setapellido(ev.target.value)}
                             />
                             <TextField
-                                variant="outlined"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -118,32 +82,44 @@ const SignInDataUpload = () => {
                                 autoComplete="documento"
                                 onChange={ ev => setdocumento(ev.target.value)}
                             />
-                            
                             <Button
-                                type="submit"
+                                type='submit'
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                className={classes.submit}
-                                onClick={click}
-                            >
+                                className={classes.submit}>
                                 Aceptar
                             </Button>
-                        
-                        </div>
-                 
+                        </form>
                 }
             </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
-            {
-                 redirect && <Redirect to='/'/>
-             }
         </Container>
+        {
+          redirect && <Redirect to='/'/>
+        }
       </Suspense>
         
      );
 }
  
 export default SignInDataUpload;
+
+//ESTILOS
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    //marginTop: theme.spacing(0),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(5, 0, 2),
+  },
+}));

@@ -5,7 +5,7 @@ import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom'
 import { FirebaseAppProvider } from 'reactfire'
-import firebaseConfig from './services/firebase-config'
+import firebaseConfig from './config/firebase-config'
 import Spinner from './components/Spinner'
 
 ReactDOM.render(

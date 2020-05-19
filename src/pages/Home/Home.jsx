@@ -1,13 +1,14 @@
 import React from 'react';
-import ButtonCustom from '../../components/Button'
+import ButtonCustom from '../../components/Button';
+import LayoutAuth from '../LayoutAuth';
 
 const IndexWithoutLogin = () => {
     return ( 
-        <div>
-            <h1>SOY EL HOME U. NO LOGUEADO</h1>
+        <LayoutAuth>
+            <img src='/assets/logo-muni-verde.png' alt="logo" className='logo'/>
             <ButtonCustom name="Denuncia Rápida" path="/denuncia"/>
-            <ButtonCustom name="Login" path="/login/"/>  
-        </div>
+            <ButtonCustom name="Login" path="/login/"/>
+        </LayoutAuth>
      );
 }
  

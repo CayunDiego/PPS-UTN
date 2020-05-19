@@ -1,13 +1,13 @@
 import React from 'react';
 import 'firebase/auth';
 import { useFirebaseApp, useUser } from 'reactfire';
-import  { Redirect } from 'react-router-dom';
+import  { Redirect} from 'react-router-dom';
 import Button from '@material-ui/core/Button'
 
 const Logout = () => {
     const firebase = useFirebaseApp();
     const user = useUser();
-
+    
      //Cierra Sesión
      const logout = async () => {
         await firebase.auth().signOut();

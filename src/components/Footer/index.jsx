@@ -1,10 +1,9 @@
 import React from 'react';
-import BottomNav from '../BottomNav'
 
-const Footer = () => {
+const Footer = ({children}) => {
     return (
         <div className='footer'>
-            <BottomNav/>
+            {children}
         </div>
     )
 }

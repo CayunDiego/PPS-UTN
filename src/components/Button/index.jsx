@@ -5,9 +5,9 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyle = makeStyles({
     root: {
         background: '#00a665',
-        border: 3,
         color: 'white',
-        width: 300
+        width: 300,
+        marginBottom: 50, 
     }
 });
 

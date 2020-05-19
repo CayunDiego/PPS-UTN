@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
 import UserPhoto from '../UserPhoto';
-import Logout from '../../services/Logout'
+import Logout from '../../services/Auth/Logout'
 
 const Navbar = () => {
     const classes = useStyles();
