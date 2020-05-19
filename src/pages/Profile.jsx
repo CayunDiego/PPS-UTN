@@ -1,26 +1,55 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
 
 //components
-import User from '../components/User';
+import EditUser from '../components/EditUser';
 import EditUserName from '../components/EditUserName'
 import EditPhoto from '../components/EditPhoto'
+import Layout from '../pages/Layout'
+
 
 const Profile = () => {
-  const [editData, setEditData] = useState({
+    const classes = useStyles();
+
+    const [editData, setEditData] = useState({
                                           displayName: '',
                                           photoURL:''
                                           })
-  const [editClicked, setEditClicked] = useState(false)
+    const [editClicked, setEditClicked] = useState(false)
   
     return ( 
-        <div>
-          <EditUserName setEditData={setEditData} setEditClicked={setEditClicked}/>
-          <EditPhoto setEditData={setEditData} setEditClicked={setEditClicked}/>
-          <User editData={editData} editClicked={editClicked} setEditClicked={setEditClicked}/>
-          <Link to='/'>Volver</Link>
-        </div>
+      <Layout>
+          <Card className={classes.root}>
+            <CardContent>
+              <EditUser editData={editData} editClicked={editClicked} setEditClicked={setEditClicked}/>
+              <EditUserName setEditData={setEditData} setEditClicked={setEditClicked}/>
+              <EditPhoto setEditData={setEditData} setEditClicked={setEditClicked}/>
+            </CardContent>
+          </Card>
+      </Layout>
      );
 }
  
 export default Profile;
+
+
+//ESTILOS
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});

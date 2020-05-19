@@ -2,6 +2,7 @@ import React from 'react';
 import 'firebase/auth';
 import { useFirebaseApp, useUser } from 'reactfire';
 import  { Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button'
 
 const Logout = () => {
     const firebase = useFirebaseApp();
@@ -15,7 +16,14 @@ const Logout = () => {
     return ( 
         <div>
             {
-                user && <button onClick={logout}>Cerrar Sesión</button>
+                user &&
+                    <Button 
+                        variant="text" 
+                        color="inherit" 
+                        size="small" 
+                        onClick={logout}>
+                        Cerrar Sesión
+                    </Button>
             }
             {
                 !user && <Redirect to='/'/>

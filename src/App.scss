@@ -1,0 +1,16 @@
+@import './pages/Layout/layout';
+@import './components/Footer/footer';
+@import './components/Section/section';
+@import './components/Header/header';
+@import './components/NavTab/navtab';
+@import './components/Navbar/navbar';
+///////////////////////////////////////
+
+.App {
+  background: rgb(235, 241, 236);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}

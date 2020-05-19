@@ -6,8 +6,6 @@ const Denuncia = () => {
     return ( 
         <div>
             ESTO ES UNA DENUNCIA SIN LOGIN
-
-
             <Button variant="outlined" color="default" href="/" 
             disableElevation>
                 VOLVER

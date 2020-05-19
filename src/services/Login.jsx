@@ -2,6 +2,7 @@ import React from 'react';
 import  { Redirect } from 'react-router-dom';
 import 'firebase/auth';
 import { useFirebaseApp, useUser } from 'reactfire'
+import Button from '@material-ui/core/Button'
 
 const Login = ({email, password}) => {
     const firebase = useFirebaseApp();
@@ -13,10 +14,15 @@ const Login = ({email, password}) => {
 
     return ( 
         <div>
-            ESTO ES EL LOGIN
-            <div>
-                <button onClick={login}>Iniciar Sesión</button>
-            </div>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                onClick={login}
+            >
+                Log In
+            </Button>
             {
                 user && <Redirect to='/'/>
             }

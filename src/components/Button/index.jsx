@@ -6,7 +6,8 @@ const useStyle = makeStyles({
     root: {
         background: '#00a665',
         border: 3,
-        color: 'white'
+        color: 'white',
+        width: 300
     }
 });
 
