@@ -38,16 +38,17 @@ const User = ({editData, editClicked, setEditClicked}) => {
         <div>
             {
                 user && 
-                    <div>
+                    <div className='cardUser'>
+                      <div>
                         <h1>{user.displayName}</h1>
+                        <p>{user.email}</p>
+                      </div>
                         <UserPhoto tamanio='large'/>
                     </div>
-                
             }
             {
                 !user && <p>NO TENGO INFO</p>
             }
-            
         </div>
      );
 }

@@ -10,7 +10,6 @@ import EditUserName from '../components/EditUserName'
 import EditPhoto from '../components/EditPhoto'
 import Layout from '../pages/Layout'
 
-
 const Profile = () => {
     const classes = useStyles();
 
@@ -19,11 +18,10 @@ const Profile = () => {
                                           photoURL:''
                                           })
     const [editClicked, setEditClicked] = useState(false)
-  
     return ( 
       <Layout>
           <Card className={classes.root}>
-            <CardContent>
+            <CardContent className={classes.cardContent}>
               <EditUser editData={editData} editClicked={editClicked} setEditClicked={setEditClicked}/>
               <EditUserName setEditData={setEditData} setEditClicked={setEditClicked}/>
               <EditPhoto setEditData={setEditData} setEditClicked={setEditClicked}/>
@@ -32,7 +30,7 @@ const Profile = () => {
       </Layout>
      );
 }
- 
+
 export default Profile;
 
 
@@ -40,11 +38,10 @@ export default Profile;
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
+    marginTop: 30
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  cardContent: {
+
   },
   title: {
     fontSize: 14,

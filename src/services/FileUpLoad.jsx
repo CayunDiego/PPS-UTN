@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useStorage } from 'reactfire';
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
 
 
 const FileUpLoad = ({setUpload}) => {
     const [ progress, setProgress ] = useState(0);
     const [ image, setImage ] = useState(null);
-    const [ url, setUrl ] = useState("");
+    const [ , setUrl ] = useState("");
     const [ error, setError ] = useState(null);
-    
     const storage = useStorage();
 
     const handChange = e => {
@@ -47,17 +49,24 @@ const FileUpLoad = ({setUpload}) => {
 
     return ( 
         <div>
-
-            {progress > 0 ?  <progress value={progress} max="100"/> : ""}
+            {progress > 0 ?  <progress value={progress} max="100" /> : ""}
             <br/>
             <input type="file" name="" id="" onChange={handChange}/>
-            <button onClick={handleUpload}>Subir</button>
             <br/>
-            { 
-                url 
-                    ? (<img src={url} alt="imagen" height="42" width="42"/>)
-                    : (<img src="https://image.freepik.com/iconos-gratis/cargar-documento_318-8461.jpg" alt="imagen" height="42"/> )
-            }
+            <br/>
+            <Button
+                    endIcon={<CloudUploadIcon/>}
+                    type='button'
+                    fullWidth
+                    variant="outlined"
+                    color="primary"
+                    onClick={handleUpload}>
+                    Subir Foto
+                </Button>
+            <br/>
+            {/* { 
+                url && (<img src={url} alt="imagen" height="42" width="42"/>)
+            } */}
             <div>
                 <p>{error}</p>
             </div>
