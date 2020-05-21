@@ -8,6 +8,7 @@ const UserPhoto = ({tamanio='large'}) => {
     const user = useUser();
     const classes = useStyles();
 
+
     return ( 
        user &&
         <div className={classes.root}>
@@ -17,6 +18,14 @@ const UserPhoto = ({tamanio='large'}) => {
                     alt={user.displayName} 
                     src={user.photoURL} 
                     className={classes.large}>X
+                </Avatar>
+            }
+            {
+              tamanio === 'medium' &&
+                <Avatar 
+                    alt={user.displayName} 
+                    src={user.photoURL} 
+                    className={classes.medium}>X
                 </Avatar>
             }
             {
@@ -43,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
   small: {
     width: theme.spacing(4),
     height: theme.spacing(4),
+  },
+  medium: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
   },
   large: {
     width: theme.spacing(10),

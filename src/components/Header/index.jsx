@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from '../Navbar';
 
-const Header = ({children}) => {
+const Header = ({children, click}) => {
     return (
-        <div className='header'>
-            <Navbar/>
+        <header>
+            <Navbar click={click}/>
             {children}
-        </div>
+        </header>
     )
 }
 

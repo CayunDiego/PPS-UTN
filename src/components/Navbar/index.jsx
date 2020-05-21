@@ -4,30 +4,30 @@ import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 
 import UserPhoto from '../UserPhoto';
-import Logout from '../../services/Auth/Logout'
 
-const Navbar = () => {
+const Navbar = ({click}) => {
     const classes = useStyles();
 
     return (
-        <div className='navbar'>
-             <IconButton 
-                href="/"
-                aria-label="menu" 
-                color="inherit" 
-                className={classes.menuButton}>
-                <HomeIcon/>
-              </IconButton>
-            <h3>Monitoreo Ciudadano</h3>
-            <Logout/>
-            <IconButton 
-                  href="/profile/"
-                  aria-label="menu" 
-                  color="inherit" 
-                  className={classes.menuButton}>
-                  <UserPhoto tamanio="small"/>
-            </IconButton>
-        </div>
+        <nav className='navbar'>
+             <div className='container'>
+                <IconButton 
+                    href="/"
+                    aria-label="menu" 
+                    color="inherit" 
+                    className={classes.menuButton}>
+                    <HomeIcon/>
+                </IconButton>
+                <h3>Monitoreo Ciudadano</h3>
+                <IconButton 
+                    onClick={click}
+                    aria-label="menu" 
+                    color="inherit" 
+                    className={classes.menuButton}>
+                    <UserPhoto tamanio="small"/>
+                </IconButton>
+            </div>
+        </nav>
     )
 }
 
@@ -38,6 +38,6 @@ export default Navbar
 const useStyles = makeStyles( theme => ({
     offset: theme.mixins.toolbar,
     menuButton: {
-        marginRight: theme.spacing(2)
+        marginRight: theme.spacing(0)
     },
   }))

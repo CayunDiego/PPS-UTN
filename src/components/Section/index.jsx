@@ -2,9 +2,9 @@ import React from 'react';
 
 const Section = ({children}) => {
     return (
-        <div className='section'>
+        <section className='section'>
             {children}
-        </div>
+        </section>
     )
 }
 

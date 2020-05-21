@@ -38,7 +38,7 @@ export default Profile;
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    marginTop: 30
+    marginTop: 12
   },
   cardContent: {
 

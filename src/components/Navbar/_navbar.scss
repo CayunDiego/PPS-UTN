@@ -1,9 +1,18 @@
 .navbar{
-    background-color: #44ca97;
+    background: #44ca97;
     width: 100%;
     height: 46px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }

@@ -2,9 +2,9 @@ import React from 'react';
 
 const SectionAuth = ({children}) => {
     return (
-        <div className='sectionAuth'>
+        <section className='sectionAuth'>
             {children}
-        </div>
+        </section>
     )
 }
 

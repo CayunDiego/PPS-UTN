@@ -1,9 +1,10 @@
-.header{
-    background-color: #00a665;
+header{
+    background-color: #fff;
     width: 100%;
     height: 94px;
+    position: fixed;
     display: flex;
     flex-direction: column;
-    position: fixed;
     z-index: 100;
 }
+//ver de sacar el z-index. en el otro no está 
