@@ -7,8 +7,6 @@ import Avatar from '@material-ui/core/Avatar';
 const UserPhoto = ({tamanio='large'}) => {
     const user = useUser();
     const classes = useStyles();
-
-
     return ( 
        user &&
         <div className={classes.root}>

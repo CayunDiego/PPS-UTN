@@ -1,0 +1,20 @@
+.form{
+    width: 100%;
+    max-width: 900px;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.progress{
+
+    height: 54px;
+    width: 100%;
+}
+
+.formData{
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+}

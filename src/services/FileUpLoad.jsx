@@ -5,7 +5,7 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 
 
-const FileUpLoad = ({setUpload}) => {
+const FileUpLoad = ({setUpload, folder}) => {
     const [ progress, setProgress ] = useState(0);
     const [ image, setImage ] = useState(null);
     const [ , setUrl ] = useState("");
@@ -28,7 +28,7 @@ const FileUpLoad = ({setUpload}) => {
 
     const handleUpload = () => {
         if(image){
-            const storageRef = storage.ref(`/imagenPerfil/${image.name}`);
+            const storageRef = storage.ref(`/${folder}/${image.name}`);
             const uploadTask = storageRef.put(image);
             uploadTask.on("state_changed", snapshot => {
                 const progress = Math.round((snapshot.bytesTransferred/snapshot.totalBytes)*100);
@@ -36,7 +36,7 @@ const FileUpLoad = ({setUpload}) => {
             }, error => {
                 setError(error);
             }, async () => {
-                const downloadUrl = await storage.ref("imagenPerfil").child(image.name).getDownloadURL();
+                const downloadUrl = await storage.ref(folder).child(image.name).getDownloadURL();
                 setUrl(downloadUrl);
                 setUpload(downloadUrl);
                 setProgress(0);

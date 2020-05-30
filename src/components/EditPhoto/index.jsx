@@ -25,7 +25,7 @@ const EditPhoto = ({setEditData, setEditClicked}) => {
 
     return ( 
         <div>
-                <FileUpLoad setUpload={setNewPhoto}/> 
+                <FileUpLoad setUpload={setNewPhoto} folder='profilePhoto'/> 
                 <Button
                     endIcon={<EditIcon/>}
                     type='button'

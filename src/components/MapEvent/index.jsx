@@ -10,12 +10,12 @@ const icon = new Icon({
     popupAnchor: [-2, -35],
 });
 
-const MapEvent = () => {
+const MapEvent = ({handleChangeLocation}) => {
     const [location, setLocation] = useState( {latlng: {
                                                         lat: -31.4135000,
                                                         lng: -64.1810500
                                                     }});
-
+    const [adress, setAdress] = useState('Searching for the address...');
     const [hasLocation, sethasLocation] = useState(false);
     const [marker, setmarker] = useState(null);
     const [zoom, setzoom] = useState(13);
@@ -26,7 +26,7 @@ const MapEvent = () => {
     //cuando carga el mapa, nos pone en cordoba
     const handleClick = () => {
         const map = mapRef.current;
-        if (map != null) {
+        if (map !== null) {
             map.leafletElement.locate();
         }
     }
@@ -49,12 +49,23 @@ const MapEvent = () => {
             setLocation({latlng: {
                             lat: newCoordenadas.lat,
                             lng: newCoordenadas.lng
-                        }})
+                        }});
         }
     }
 
+    const getDireccion = async location => {
+        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=geojson&lat=${location.latlng.lat}&lon=${location.latlng.lng}`);
+        const data = await res.json();
+        // console.log(data.features[0]);
+        const address = data.features[0].properties.address;
+        const displayAddress = `${address.amenity ? `${address.amenity},`:`${address.road}`} ${address.house_number ? `${address.house_number},` : ''} ${address.suburb}, ${address.city}`;
+        setAdress(displayAddress);
+    }
+
     useEffect(()=>{
+        getDireccion(location)
         if(hasLocation){
+           
             setmarker(<Marker 
                         draggable
                         position={location.latlng}
@@ -64,12 +75,17 @@ const MapEvent = () => {
                         >
                         <Popup>
                             <h1>Estoy acá</h1>
+                            <h3>
+                                {adress}
+                            </h3>
                             <p>log: {location.latlng.lat}</p>
                             <p>log: {location.latlng.lng}</p>
                         </Popup>
                     </Marker>)
+                  
         }
-    },[hasLocation,location]); 
+        handleChangeLocation(location, adress);
+    },[hasLocation,location,handleChangeLocation, adress]); 
 
     return (
             <Map

@@ -1,17 +1,17 @@
 import React from 'react';
 
-import Denuncia from '../Denuncia'
+import DenunciaBETA from '../DenunciaBETA'
 
 const Denuncias = () => {
     return ( 
         <div>
-          <Denuncia/>
-          <Denuncia/>
-          <Denuncia/>
-          <Denuncia/>
-          <Denuncia/>
-          <Denuncia/>
-          <Denuncia/>
+          <DenunciaBETA/>
+          <DenunciaBETA/>
+          <DenunciaBETA/>
+          <DenunciaBETA/>
+          <DenunciaBETA/>
+          <DenunciaBETA/>
+          <DenunciaBETA/>
         </div>
      );
 }
