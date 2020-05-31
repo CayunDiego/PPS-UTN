@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import { useUser } from 'reactfire';
+import complaintHttpClient from '../../services/Api/complaint.httpClient'
 
 const FormDenuncia = () => {
     const theme = useTheme();
@@ -104,17 +105,20 @@ const FormDenuncia = () => {
     },[activeStep]);
 
     const submit = async (denun) => {
-        const url = "http://localhost:4000/api/v1/complaint";
-        console.log(denun)
-        const res = await fetch(url, {
-            method: 'POST',
-            mode: 'cors',
-            body: JSON.stringify(denun),
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json'}
-            });
-       
+        //ANDA
+        // const url = "http://localhost:4000/api/v1/complaint";
+        // console.log(denun)
+        // const res = await fetch(url, {
+        //     method: 'POST',
+        //     mode: 'cors',
+        //     body: JSON.stringify(denun),
+        //     headers: {
+        //       Accept: 'application/json',
+        //       'Content-Type': 'application/json'}
+        //     });
+        complaintHttpClient.post(denun);
+
+
         setTimeout(()=>{
             setform(<Denuncia dataDenuncia={denun}/>);
         },1500);

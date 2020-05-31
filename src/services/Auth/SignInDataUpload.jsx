@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import UserPhoto from '../../components/UserPhoto'
+import userHttpClient from '../../services/Api/user.httpClient'
 
 const SignInDataUpload = () => {
     const [redirect, setRedirect] = useState(false);
@@ -23,12 +24,14 @@ const SignInDataUpload = () => {
     const handleSubmit = async e => {
        e.preventDefault();
         const datosUser = {
-                            id: user.uid,
-                            nombre: nombre,
-                            apellido: apellido,
-                            documento: documento
+                            idUser: user.uid,
+                            displayName: user.displayName,
+                            firstName: nombre,
+                            lastName: apellido,
+                            document: documento,
+                            photoURL: user.photoURL
                           }
-        await db.ref('/users').push(datosUser);
+        await userHttpClient.post(datosUser);
         setRedirect(true);
     }
 
