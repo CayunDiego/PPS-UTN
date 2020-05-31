@@ -17,7 +17,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
-export default function DenunciaBETA() {
+import moment from 'moment';
+import 'moment/locale/es';
+moment.locale('es');
+
+const DenunciaBETA = ({complaint}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -29,36 +33,35 @@ export default function DenunciaBETA() {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
+          <Avatar aria-label="recipe" className={classes.avatar} src={complaint.USER.PHOTO_URL}>
             R
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        // action={
+        //   <IconButton aria-label="settings">
+        //     <MoreVertIcon />
+        //   </IconButton>
+        // }
+        title= {complaint.TYPE_WORK.TYPE}
+        subheader= { moment(complaint.CREATE_AT).fromNow() }
       />
       <CardMedia
         className={classes.media}
-        image="https://cdn.lavoz.com.ar/sites/default/files/styles/width_1072/public/nota_periodistica/bache_0.jpg"
-        title="Paella dish"
+        image= {complaint.PHOTO_URL}
+        title= "Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {complaint.DESCRIPTION}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        {/* <IconButton aria-label="share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -101,11 +104,13 @@ export default function DenunciaBETA() {
   );
 }
 
+export default DenunciaBETA;
 
 //ESTILOS
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+    minWidth: 300,
     marginBottom: 30
 
   },

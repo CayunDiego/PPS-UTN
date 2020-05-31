@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import DenunciaBETA from '../DenunciaBETA'
 
-const Denuncias = () => {
+const Denuncias = ({ complaints }) => {
+
+    const validarObjeto = () => {
+      if(Object.keys(complaints).length !== 0){
+        return true;
+      }
+      return false;
+    }
+
     return ( 
-        <div>
-          <DenunciaBETA/>
-          <DenunciaBETA/>
-          <DenunciaBETA/>
-          <DenunciaBETA/>
-          <DenunciaBETA/>
-          <DenunciaBETA/>
-          <DenunciaBETA/>
-        </div>
+        <Fragment>
+        {validarObjeto() && complaints.map(complaint => {
+          return (
+            <DenunciaBETA key={complaint.ID} complaint={complaint}/>
+          )
+        })}
+        </Fragment>
      );
 }
  

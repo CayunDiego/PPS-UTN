@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from 'react';
-import {  useUser, useDatabase } from 'reactfire';
+import {  useUser } from 'reactfire';
 import  { Redirect } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,10 +16,7 @@ const SignInDataUpload = () => {
     const [apellido, setapellido] = useState('');
     const [documento, setdocumento] = useState('');
     const user = useUser();
-    const db = useDatabase();
-
     const classes = useStyles();
-
 
     const handleSubmit = async e => {
        e.preventDefault();

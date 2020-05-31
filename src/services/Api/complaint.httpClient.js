@@ -12,6 +12,18 @@ const getAll = async () => {
   return data;
 }
 
+const getUserId = async (user) => {
+  const res = await fetch(`${url}/user/${user.uid}`, {
+              method: 'GET',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
+  });
+  const data = await res.json();
+  return data;
+}
+
 const post = async (body = {}) => {
   const res = await fetch(url, {
               method: 'POST',
@@ -26,7 +38,11 @@ const post = async (body = {}) => {
   return data;
 }
 
+
+
+
 export default {
   getAll,
-  post
+  post,
+  getUserId
 }

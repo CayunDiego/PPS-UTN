@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFirebaseApp, useUser } from 'reactfire';
+import userHttpClient from '../../services/Api/user.httpClient'
 
 import UserPhoto from '../UserPhoto'
 
@@ -12,14 +13,15 @@ const User = ({editData, editClicked, setEditClicked}) => {
         const setInfo = () =>{
             let updateUser = {};
             if(editData.displayName !== ''){
-              updateUser = {displayName: editData.displayName,
-                            photoURL: user.photoURL
+              updateUser = {'displayName': editData.displayName,
+                            'photoURL': user.photoURL
               }
             }
             if(editData.photoURL !== ''){
-              updateUser = {displayName: user.displayName,
-                            photoURL: editData.photoURL}
+              updateUser = {'displayName': user.displayName,
+                            'photoURL': editData.photoURL}
             }
+            //ESTO TIENE QUE ESTAR EN EL SERVICE
               firebase.auth().currentUser.updateProfile(updateUser)
                 .then(function() {
                 // Update successful.
@@ -28,6 +30,7 @@ const User = ({editData, editClicked, setEditClicked}) => {
                 // An error happened.
                 console.log(`${error}Error happened`);
               });
+              userHttpClient.put(updateUser,user);
         }
         if(editClicked){
             setInfo();
