@@ -3,7 +3,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Section from '../../components/Section';
 import BottomNav from '../../components/BottomNav';
-
 import SideDrawer from '../../components/SideDrawer';
 import Backdrop from '../../components/SideDrawer/Backdrop'
 
@@ -13,7 +12,6 @@ const Layout = ({header, children}) => {
     const [sideDraweOpen, setsideDraweOpen] = useState(false);
 
     const drawerToggleClickHandler = () =>{
-        console.log('hizo click');
         setsideDraweOpen(!sideDraweOpen);
     }
 

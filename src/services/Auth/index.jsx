@@ -5,13 +5,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 // import Grid from '@material-ui/core/Grid';
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {useLocation, Link} from 'wouter';
 
 
 import SignIn from './SignIn';
@@ -22,6 +23,7 @@ const Auth = ({type}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userName, setUserName] = useState('');
+    const [,pushLocation] = useLocation();
   
     const classes = useStyles();
 
@@ -41,7 +43,6 @@ const Auth = ({type}) => {
                 </Typography>
                 <form className={classes.form} onSubmit={handleSubmit}>
                         <TextField
-                          
                             margin="normal"
                             required
                             fullWidth
@@ -86,7 +87,7 @@ const Auth = ({type}) => {
                               <Login email={email} password={password}/>
                               <Grid container className={classes.form}> 
                                 <Grid item>
-                                  <Link href="/signin/" variant="body2">
+                                  <Link href="/signin/">
                                     {"Don't have an account? Sign Up"}
                                   </Link>
                                 </Grid>
@@ -98,7 +99,7 @@ const Auth = ({type}) => {
                             variant="contained"
                             color="inherit"
                             className={classes.submit}
-                            href="/"
+                            onClick={()=>pushLocation('/')}
                         >
                             Volver
                         </Button>

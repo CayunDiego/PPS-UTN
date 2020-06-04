@@ -1,15 +1,13 @@
 import React from 'react';
 import 'firebase/auth';
-import { useFirebaseApp, useUser } from 'reactfire';
-import  { Redirect } from 'react-router-dom';
+import { useFirebaseApp } from 'reactfire';
+import  { useLocation } from 'wouter';
 import Button from '@material-ui/core/Button'
 
-
 const SignIn = ({email, password, username}) => {
-    const userPhotoURL = 'https://yrlist.ru/portal/img/no_photo.png' 
-
+    const [, pushLocation] = useLocation();
+    const userPhotoURL = 'https://yrlist.ru/portal/img/no_photo.png';
     const firebase = useFirebaseApp();
-    const user = useUser();
 
     //Crea la cuenta
     const submit = async () => {
@@ -21,11 +19,10 @@ const SignIn = ({email, password, username}) => {
                     photoURL: userPhotoURL
                 }).then(async function  () {
                     //Esto anda, pero debería ser con el componente de REACT
-                    window.location = '/signin/';
                 }, function (error) {
                     console.log(`${error}Error happened`);
                 });
-                return (<Redirect to='/signin'/>)
+                pushLocation('/signin/');
             } else {
               console.log('NO PASO NADA');
             }
@@ -43,9 +40,6 @@ const SignIn = ({email, password, username}) => {
             >
                 Sign In
             </Button>
-            {
-                user && <Redirect to='/signin/'/>
-            }
         </div>
      );
 }

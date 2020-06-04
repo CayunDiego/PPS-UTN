@@ -105,20 +105,7 @@ const FormDenuncia = () => {
     },[activeStep]);
 
     const submit = async (denun) => {
-        //ANDA
-        // const url = "http://localhost:4000/api/v1/complaint";
-        // console.log(denun)
-        // const res = await fetch(url, {
-        //     method: 'POST',
-        //     mode: 'cors',
-        //     body: JSON.stringify(denun),
-        //     headers: {
-        //       Accept: 'application/json',
-        //       'Content-Type': 'application/json'}
-        //     });
         complaintHttpClient.post(denun);
-
-
         setTimeout(()=>{
             setform(<Denuncia dataDenuncia={denun}/>);
         },1500);

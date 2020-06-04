@@ -1,15 +1,16 @@
 import React from 'react';
-import  { Redirect } from 'react-router-dom';
+import {useLocation} from 'wouter';
 import 'firebase/auth';
-import { useFirebaseApp, useUser } from 'reactfire'
+import { useFirebaseApp } from 'reactfire'
 import Button from '@material-ui/core/Button'
 
 const Login = ({email, password}) => {
     const firebase = useFirebaseApp();
-    const user = useUser();
-
-     const login = async () => {
+    const [, pushLocation] = useLocation();
+    
+    const login = async () => {
         await firebase.auth().signInWithEmailAndPassword(email, password);
+        pushLocation('/')
     }
 
     return ( 
@@ -23,9 +24,6 @@ const Login = ({email, password}) => {
             >
                 Log In
             </Button>
-            {
-                user && <Redirect to='/'/>
-            }
         </div>
      );
 }

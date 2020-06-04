@@ -8,12 +8,13 @@ import { useUser } from 'reactfire';
 import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-
 import UserPhoto from '../UserPhoto';
 import Copyright from '../Copyright';
 import Logout from '../../services/Auth/Logout'
+import {useLocation} from 'wouter';
 
 const SideDrawer = ({show}) => {
+    const [, pushLocation] = useLocation();
     const user = useUser();
     let drawerClasses = 'side-drawer';
     if(show){
@@ -30,7 +31,7 @@ const SideDrawer = ({show}) => {
                         <div className='displayName'>{user && user.displayName}</div>
                     </div>
                 </ListItem>
-                <ListItem button component="a" href='/profile/'>
+                <ListItem button onClick={()=>pushLocation('/profile/')}>
                     <ListItemAvatar>
                         <Avatar>
                             <EmojiEmotionsOutlinedIcon />

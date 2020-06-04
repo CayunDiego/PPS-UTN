@@ -4,33 +4,42 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 
-const UserPhoto = ({tamanio='large'}) => {
+const UserPhoto = ({tamanio='large', userData = null }) => {
     const user = useUser();
     const classes = useStyles();
+
+    let photoURL = user.photoURL;
+    let displayName = user.displayName;
+
+    if(userData!==null){
+      photoURL = userData.PHOTO_URL;
+      displayName = userData.DISPLAY_NAME;
+    }
+    
     return ( 
        user &&
         <div className={classes.root}>
             {
               tamanio === 'large' &&
                 <Avatar 
-                    alt={user.displayName} 
-                    src={user.photoURL} 
+                    alt={displayName} 
+                    src={photoURL} 
                     className={classes.large}>X
                 </Avatar>
             }
             {
               tamanio === 'medium' &&
                 <Avatar 
-                    alt={user.displayName} 
-                    src={user.photoURL} 
+                    alt={displayName} 
+                    src={photoURL} 
                     className={classes.medium}>X
                 </Avatar>
             }
             {
               tamanio === 'small' &&
                 <Avatar 
-                    alt={user.displayName} 
-                    src={user.photoURL} 
+                    alt={displayName} 
+                    src={photoURL} 
                     className={classes.small}>X
                 </Avatar>
             }

@@ -2,36 +2,41 @@ import React, { Fragment } from 'react';
 import './App.scss';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './config/themeConfig';
-import { Route , Switch } from 'react-router-dom';
+import { Route } from 'wouter';
 import { AuthCheck } from 'reactfire'
 
 import IndexWithoutLogin from './pages/Home/Home';
-import HomeRegistered from './pages/Home/HomeRegistered'
-import AuthPage from './pages/AuthPage'
+import HomeRegistered from './pages/Home/HomeRegistered';
+import AuthPage from './pages/AuthPage';
 import Denuncia from './pages/Denuncia';
-import Profile from './pages/Profile'
-import AuthConfirm from './pages/AuthConfirm'
-import NewDenuncia from './pages/NewDenuncia'
+import Profile from './pages/Profile';
+import AuthConfirm from './pages/AuthConfirm';
+import NewDenuncia from './pages/NewDenuncia';
+import Detail from './pages/Detail';
+
+//conntext
+import { ComplaintsContextProvider } from './context/ComplaintsContext';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Switch>
           <AuthCheck fallback={ 
               <Fragment>
-                <Route exact path="/" component={IndexWithoutLogin}/>
-                <Route exact path="/denuncia/" component={Denuncia}/>
-                <Route exact path="/signin/" component={ () => <AuthPage type='Sign in'/>}/>
-                <Route exact path="/login/" component={ () => <AuthPage type='Log In'/>}/>
+                <Route path="/" component={IndexWithoutLogin}/>
+                <Route path="/denuncia/" component={Denuncia}/>
+                <Route path="/signin/" component={ () => <AuthPage type='Sign in'/>}/>
+                <Route path="/login/" component={ () => <AuthPage type='Log In'/>}/>
               </Fragment>
             }>
-            <Route exact path="/" component={HomeRegistered}/>
-            <Route exact path="/profile/" component={Profile}/>
-            <Route exact path="/signin/" component={AuthConfirm}/>
-            <Route exact path="/newdenuncia/" component={NewDenuncia}/>
+              <ComplaintsContextProvider>
+                <Route path="/" component={HomeRegistered}/>
+                <Route path="/profile/" component={Profile}/>
+                <Route path="/signin/" component={AuthConfirm}/>
+                <Route path="/newdenuncia/" component={NewDenuncia}/>
+                <Route path="/denuncia/:id" component={Detail}/>
+              </ComplaintsContextProvider>
           </AuthCheck>
-        </Switch>
       </div>
     </ThemeProvider>
   );

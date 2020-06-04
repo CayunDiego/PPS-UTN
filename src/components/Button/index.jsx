@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import {useLocation} from 'wouter';
 
 const useStyle = makeStyles({
     root: {
@@ -11,16 +12,16 @@ const useStyle = makeStyles({
     }
 });
 
-const ButtonCustom = ({ name, path }) => {
-
+const ButtonCustom = ({ name, url }) => {
+    const [,pushLocation] = useLocation();
     const classes = useStyle();
-
     return ( 
         <Button 
             variant="contained" 
             color="default" 
             className={classes.root} 
-            href={path}>
+            onClick={()=>pushLocation(url)}
+            >
             {name}
         </Button>
      );

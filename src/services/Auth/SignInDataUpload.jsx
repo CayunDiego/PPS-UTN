@@ -1,6 +1,6 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import {  useUser } from 'reactfire';
-import  { Redirect } from 'react-router-dom';
+import  { useLocation } from 'wouter';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -11,7 +11,7 @@ import UserPhoto from '../../components/UserPhoto'
 import userHttpClient from '../../services/Api/user.httpClient'
 
 const SignInDataUpload = () => {
-    const [redirect, setRedirect] = useState(false);
+  const [, pushLocation] = useLocation();
     const [nombre, setnombre] = useState('');
     const [apellido, setapellido] = useState('');
     const [documento, setdocumento] = useState('');
@@ -29,11 +29,10 @@ const SignInDataUpload = () => {
                             photoURL: user.photoURL
                           }
         await userHttpClient.post(datosUser);
-        setRedirect(true);
+        pushLocation('/');
     }
 
     return ( 
-      <Suspense>
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
@@ -46,7 +45,6 @@ const SignInDataUpload = () => {
                 <Typography component="h2" variant="h4">
                   {user.displayName}
                 </Typography>
-                {!redirect &&
                         <form className={classes.form} onSubmit={handleSubmit}>
                             <TextField
                                 margin="normal"
@@ -91,14 +89,8 @@ const SignInDataUpload = () => {
                                 Aceptar
                             </Button>
                         </form>
-                }
             </div>
         </Container>
-        {
-          redirect && <Redirect to='/'/>
-        }
-      </Suspense>
-        
      );
 }
  
