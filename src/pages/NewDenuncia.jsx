@@ -10,4 +10,4 @@ const NewDenuncia = () => {
     )
 }
 
-export default NewDenuncia
+export default NewDenuncia;

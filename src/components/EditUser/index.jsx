@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useFirebaseApp, useUser } from 'reactfire';
 import userHttpClient from '../../services/Api/user.httpClient'
-
 import UserPhoto from '../UserPhoto'
 
 const User = ({editData, editClicked, setEditClicked}) => {
@@ -9,7 +8,6 @@ const User = ({editData, editClicked, setEditClicked}) => {
     const user = useUser();
 
     useEffect(() =>{
-      console.log('render');
         const setInfo = () =>{
             let updateUser = {};
             if(editData.displayName !== ''){
@@ -38,21 +36,13 @@ const User = ({editData, editClicked, setEditClicked}) => {
     });
 
     return ( 
-        <div>
-            {
-                user && 
-                    <div className='cardUser'>
-                      <div>
-                        <h1>{user.displayName}</h1>
-                        <p>{user.email}</p>
-                      </div>
-                        <UserPhoto tamanio='large'/>
-                    </div>
-            }
-            {
-                !user && <p>NO TENGO INFO</p>
-            }
-        </div>
+          <div className='cardUser'>
+            <div>
+              <h1>{user.displayName}</h1>
+              <p>{user.email}</p>
+            </div>
+              <UserPhoto tamanio='large'/>
+          </div>
      );
 }
  

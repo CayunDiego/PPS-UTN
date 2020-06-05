@@ -27,10 +27,9 @@ const BottomNavVolver = () => {
  
 export default BottomNavVolver;
 
-
 //ESTILOS
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   bottomNav: {
     width: '100%'
   }
-}));
+});

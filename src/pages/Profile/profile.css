@@ -1,0 +1,16 @@
+.cardProfile{
+    background-color: #fff; 
+    padding: 16px;
+    min-height: 356px;
+    max-width: 345px;
+    min-width: 300px;
+    margin-top: 12px;
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.21);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.21);
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.21);
+    border-radius: 8px 8px 8px 8px;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
+    display: flex;
+    flex-direction: column;
+}

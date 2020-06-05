@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect, useContext } from 'react';
 import complaintHttpClient from '../../services/Api/complaint.httpClient';
-import {  useUser } from 'reactfire';
+import { useUser } from 'reactfire';
 import Denuncias from '../Denuncias';
 import ComplaintsContext from '../../context/ComplaintsContext';
 

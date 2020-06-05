@@ -41,8 +41,8 @@ export default BottomNav;
 
 
 //ESTILOS
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   bottomNav: {
     width: '100%'
   }
-}));
+});

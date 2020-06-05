@@ -35,21 +35,10 @@ const NavTab = ({setstate, state}) => {
 
 export default NavTab
 
+//ESTILOS
 const useStyles = makeStyles((theme) => ({
     tab: {
       width: '100%',
       backgroundColor: theme.palette.background.paper,
     },
   }));
-
-//   (event, newValue) =>  setValue(newValue)
-
-//   const handleChange = (event, newValue) => {
-//     if(newValue===1){
-//         return (<Redirect to='/misdenuncias/'/>)
-//     } else {
-//         return (<Redirect to='/'/>)
-//     }
-//     setValue(newValue);
-//     return
-// };

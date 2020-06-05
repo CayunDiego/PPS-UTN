@@ -4,8 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './config/themeConfig';
 import { Route } from 'wouter';
 import { AuthCheck } from 'reactfire'
-
-import IndexWithoutLogin from './pages/Home/Home';
+import HomeUnregistered from './pages/Home/HomeUnregistered';
 import HomeRegistered from './pages/Home/HomeRegistered';
 import AuthPage from './pages/AuthPage';
 import Profile from './pages/Profile';
@@ -22,7 +21,7 @@ function App() {
       <div className="App">
           <AuthCheck fallback={ 
               <Fragment>
-                <Route path="/" component={IndexWithoutLogin}/>
+                <Route path="/" component={HomeUnregistered}/>
                 <Route path="/newdenuncia/" component={NewDenuncia}/>
                 <Route path="/signin/" component={ () => <AuthPage type='Sign in'/>}/>
                 <Route path="/login/" component={ () => <AuthPage type='Log In'/>}/>

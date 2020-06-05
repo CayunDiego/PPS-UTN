@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import { useLocation } from 'wouter';
@@ -8,7 +7,6 @@ import UserPhoto from '../UserPhoto';
 
 const Navbar = ({click}) => {
     const [, pushLocation] = useLocation();
-    const classes = useStyles();
 
     return (
         <nav className='navbar'>
@@ -16,16 +14,14 @@ const Navbar = ({click}) => {
                 <IconButton 
                     onClick={()=> pushLocation('/')}
                     aria-label="menu" 
-                    color="inherit" 
-                    className={classes.menuButton}>
+                    color="inherit">
                     <HomeIcon/>
                 </IconButton>
                 <h3>Monitoreo Ciudadano</h3>
                 <IconButton 
                     onClick={click}
                     aria-label="menu" 
-                    color="inherit" 
-                    className={classes.menuButton}>
+                    color="inherit">
                     <UserPhoto tamanio="small"/>
                 </IconButton>
             </div>
@@ -33,13 +29,4 @@ const Navbar = ({click}) => {
     )
 }
 
-export default Navbar
-
-
-//ESTILOS
-const useStyles = makeStyles( theme => ({
-    offset: theme.mixins.toolbar,
-    menuButton: {
-        marginRight: theme.spacing(0)
-    },
-  }))
+export default Navbar;

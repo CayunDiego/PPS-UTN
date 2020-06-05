@@ -4,10 +4,7 @@ import Complaint from '../Complaint';
 const Denuncias = ({ complaints }) => {
 
     const validarObjeto = () => {
-      if(Object.keys(complaints).length !== 0){
-        return true;
-      }
-      return false;
+      return Object.keys(complaints).length !== 0 ? true : false;
     }
 
     return ( 

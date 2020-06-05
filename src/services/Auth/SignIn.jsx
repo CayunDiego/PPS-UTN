@@ -18,7 +18,6 @@ const SignIn = ({email, password, username}) => {
                     displayName: username,
                     photoURL: userPhotoURL
                 }).then(async function  () {
-                    //Esto anda, pero debería ser con el componente de REACT
                 }, function (error) {
                     console.log(`${error}Error happened`);
                 });
@@ -36,8 +35,7 @@ const SignIn = ({email, password, username}) => {
                 fullWidth
                 variant="contained"
                 color="primary"
-                onClick={submit}
-            >
+                onClick={submit}>
                 Sign In
             </Button>
         </div>

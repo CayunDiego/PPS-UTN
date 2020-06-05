@@ -48,7 +48,6 @@ const SideDrawer = ({show}) => {
                 <Divider/>
                 <Copyright/>
             </div>
-            
         </nav>
     )
 }
@@ -57,9 +56,9 @@ export default SideDrawer
 
 
 //ESTILOS
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
     root: {
       width: '100%',
       maxWidth: 360,
     },
-  }));
+  });

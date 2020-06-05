@@ -2,7 +2,6 @@ import React from 'react';
 import 'firebase/auth';
 import { useFirebaseApp, useUser } from 'reactfire';
 import {useLocation} from 'wouter';
-
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
