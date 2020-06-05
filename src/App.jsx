@@ -8,7 +8,6 @@ import { AuthCheck } from 'reactfire'
 import IndexWithoutLogin from './pages/Home/Home';
 import HomeRegistered from './pages/Home/HomeRegistered';
 import AuthPage from './pages/AuthPage';
-import Denuncia from './pages/Denuncia';
 import Profile from './pages/Profile';
 import AuthConfirm from './pages/AuthConfirm';
 import NewDenuncia from './pages/NewDenuncia';
@@ -24,7 +23,7 @@ function App() {
           <AuthCheck fallback={ 
               <Fragment>
                 <Route path="/" component={IndexWithoutLogin}/>
-                <Route path="/denuncia/" component={Denuncia}/>
+                <Route path="/newdenuncia/" component={NewDenuncia}/>
                 <Route path="/signin/" component={ () => <AuthPage type='Sign in'/>}/>
                 <Route path="/login/" component={ () => <AuthPage type='Log In'/>}/>
               </Fragment>

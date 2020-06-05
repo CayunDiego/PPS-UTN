@@ -26,6 +26,8 @@ const FormDenuncia = () => {
     
     const user = useUser();
 
+    let usuario = user !== null ? user.uid : null;
+
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
       };
@@ -98,7 +100,7 @@ const FormDenuncia = () => {
                     'lng': latlng.latlng.lng,
                     'photoURL': photoURL,
                     'idType': tipoObra,
-                    'idUser': user.uid
+                    'idUser': usuario
                     };
                 submit(denun);
             }

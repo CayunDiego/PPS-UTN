@@ -8,8 +8,13 @@ const UserPhoto = ({tamanio='large', userData = null }) => {
     const user = useUser();
     const classes = useStyles();
 
-    let photoURL = user.photoURL;
-    let displayName = user.displayName;
+    let photoURL = 'unregistered user';
+    let displayName = 'unregistered user';
+
+    if(user !== null){
+      photoURL = user.photoURL;
+      displayName = user.displayName;
+    }
 
     if(userData!==null){
       photoURL = userData.PHOTO_URL;

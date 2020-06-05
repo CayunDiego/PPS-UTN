@@ -25,6 +25,7 @@ moment.locale('es');
 const DenunciaBETA = ({complaint, children}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const photoAvatar = complaint.USER !== null ? complaint.USER.PHOTO_URL : '';
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -34,8 +35,8 @@ const DenunciaBETA = ({complaint, children}) => {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar} src={complaint.USER.PHOTO_URL}>
-            R
+          <Avatar aria-label="recipe" className={classes.avatar} src={photoAvatar}>
+            X
           </Avatar>
         }
         // action={
