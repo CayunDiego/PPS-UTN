@@ -5,14 +5,15 @@ import commentHttpClient from '../../services/Api/comment.httpClient'
 const ListOfComment = ({idComplaint, newComment}) => {
   const [comments, setComments] = useState([]);
     //tengo que recuperar los comentarios
-    const getComments = async () => {
-      const res = await commentHttpClient.get(idComplaint);
-      setComments(res.data);
-  }
+  //   const getComments = async () => {
+  //     const res = await commentHttpClient.get(idComplaint);
+  //     setComments(res.data);
+  // }
 
   useEffect(()=> {
-    getComments();
-  },[newComment]);
+    commentHttpClient.get(idComplaint)
+      .then(res => setComments(res.data));
+  },[newComment,idComplaint]);
 
     return (
           <div>

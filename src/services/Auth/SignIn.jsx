@@ -2,7 +2,7 @@ import React from 'react';
 import 'firebase/auth';
 import { useFirebaseApp } from 'reactfire';
 import  { useLocation } from 'wouter';
-import Button from '@material-ui/core/Button'
+import { Button } from '@material-ui/core';
 
 const SignIn = ({email, password, username}) => {
     const [, pushLocation] = useLocation();

@@ -1,89 +1,70 @@
 import React, {useState, useEffect} from 'react';
+import { useUser } from 'reactfire';
 import MapEvent from '../MapEvent';
 import FormData from './FormData';
 import FormPhoto from './FormPhoto';
-import Complaint from '../Complaint'
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { useTheme } from '@material-ui/core/styles';
-import MobileStepper from '@material-ui/core/MobileStepper';
-import Button from '@material-ui/core/Button';
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { useUser } from 'reactfire';
-import complaintHttpClient from '../../services/Api/complaint.httpClient'
+import { MobileStepper, Button } from '@material-ui/core';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons';
+import complaintHttpClient from '../../services/Api/complaint.httpClient';
+import { useLocation } from 'wouter';
 
 const FormDenuncia = () => {
-    const theme = useTheme();
-    const [activeStep, setActiveStep] = useState(0);
-    const [form, setform] = useState('');
-    const [latlng, setlatlng] = useState({latlng: {
-                                                    lat: -31.413500,
-                                                    lng: -64.181050
-                                                }});
-    const [tipoObra, settipoObra] = useState(15);
-    const [causa, setcausa] = useState('');
-    const [photoURL, setphotoURL] = useState('');
-    
     const user = useUser();
+    const usuario = user !== null ? user.uid : null;   
+    const theme = useTheme();
+    const [, pushLocation] = useLocation();
+    const [activeStep, setActiveStep] = useState(0);
+    const [form, setform] = useState('');                                          
+    const [newComplaint, setNewComplaint] = useState({  'description': '',
+                                                        'address': '',
+                                                        'lat': -31.413500,
+                                                        'lng': -64.181050,
+                                                        'photoURL': '',
+                                                        'idType': 15,
+                                                        'idUser': usuario
+                                                        });
+      //Lee los datos del formulario
+     const handleChangeState = e => {
+        e.persist()
+        setNewComplaint(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }));
+    }
 
-    let usuario = user !== null ? user.uid : null;
+    const handleChangePhoto = photo  => {
+        setNewComplaint(prevState => ({
+            ...prevState,
+            'photoURL': photo
+        }));
+    }
+
+    const handleChangeLocation = (latlng, address )=> {
+        setNewComplaint(prevState => ({
+            ...prevState,
+            'address': address,
+            'lat': latlng.latlng.lat,
+            'lng': latlng.latlng.lng,
+        }));
+    }
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      };
+    };
     
-      const handleBack = () => {
+    const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
-      };
+    };
 
-    //  //Lea los datos del formulario
-    //  const handleChangeState = e => {
-    //      console.log(denuncia)
-    //      dispatch({
-    //         [e.target.name]: e.target.value
-    //     });
-    //     console.log(`cambio: ${e.target.name} a ${e.target.value}`)
-    // }
-
-    // const handleChangeLocation = e  => {
-    //     setdenuncia({
-    //         ...denuncia,
-    //         "latlng": e.latlng
-    //     });
-    // }
-
-    // const handleChangePhoto = e  => {
-    //     setdenuncia({
-    //         ...denuncia,
-    //         "photoUrl": e
-    //     });
-    // }
-
-    const handleChangePhoto = e => {
-        setphotoURL(e);
-    }
-
-    const handleChangeLocation = (latlng, adress )=> {
-        setlatlng({'latlng': latlng.latlng, 
-                    adress});
-    }
-
-    const handleChangeCausa = e => {
-        setcausa(e.target.value);
-    }
-
-    const handleSelected = e => {
-        settipoObra(e.target.value);
-    }
-
-
+    
     useEffect(()=>{
-        
             if(activeStep === 0){
                 setform(<MapEvent handleChangeLocation={handleChangeLocation}/>)
             }
             if(activeStep === 1){
-                setform(<FormData handleChangeCausa={handleChangeCausa} handleSelected={handleSelected}/>)
+                setform(<FormData handleChangeState={handleChangeState}/>)
             }
             if(activeStep === 2){
                 setform(<FormPhoto handleChangePhoto={handleChangePhoto}/>);
@@ -93,24 +74,15 @@ const FormDenuncia = () => {
                             <AlertTitle>Success</AlertTitle>
                             This is a success alert — <strong>check it out!</strong>
                         </Alert>);
-                const denun =
-                    {'description': causa,
-                    'address': latlng.adress,
-                    'lat': latlng.latlng.lat,
-                    'lng': latlng.latlng.lng,
-                    'photoURL': photoURL,
-                    'idType': tipoObra,
-                    'idUser': usuario
-                    };
-                submit(denun);
+                submit();
             }
     },[activeStep]);
 
-    const submit = async (denun) => {
-        complaintHttpClient.post(denun);
-        // setTimeout(()=>{
-        //     setform(<Complaint dataDenuncia={denun}/>);
-        // },1500);
+    const submit = () => {
+        complaintHttpClient.post(newComplaint);
+        setTimeout(()=>{
+            pushLocation('/')
+        },1300);
     }
 
     return (

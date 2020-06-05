@@ -1,19 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
+import {Avatar, Button, CssBaseline, TextField, Typography, Container, Grid} from '@material-ui/core';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import {useLocation, Link} from 'wouter';
-
-
 import SignIn from './SignIn';
 import Login from './Login';
-import Grid from '@material-ui/core/Grid'
+
 
 const Auth = ({type}) => {
     const [email, setEmail] = useState('');

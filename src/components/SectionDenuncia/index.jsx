@@ -3,6 +3,8 @@ import complaintHttpClient from '../../services/Api/complaint.httpClient';
 import { useUser } from 'reactfire';
 import Denuncias from '../Denuncias';
 import ComplaintsContext from '../../context/ComplaintsContext';
+//MOCK
+import complaintsJSON from '../../mock/complaints.json'
 
 const SectionDenuncia = ({state}) => {
     const user = useUser();
@@ -21,8 +23,10 @@ const SectionDenuncia = ({state}) => {
     }
 
     useEffect(()=> {
-        getComplaints();
-        getComplaintUser()
+        // getComplaintUser();
+        process.env.REACT_APP_MOCK_COMPLAINT === "true" 
+            ? setComplaints(complaintsJSON.data)
+            : getComplaints();
     },[]);
 
 

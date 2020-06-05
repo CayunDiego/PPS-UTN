@@ -1,17 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import { useUser } from 'reactfire';
-import EmojiEmotionsOutlinedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
+import {List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider} from '@material-ui/core';
+import { EmojiEmotionsOutlined } from '@material-ui/icons';
 import UserPhoto from '../UserPhoto';
 import Copyright from '../Copyright';
 import Logout from '../../services/Auth/Logout'
-import {useLocation} from 'wouter';
+import { useLocation } from 'wouter';
 
 const SideDrawer = ({show}) => {
     const [, pushLocation] = useLocation();
@@ -34,7 +29,7 @@ const SideDrawer = ({show}) => {
                 <ListItem button onClick={()=>pushLocation('/profile/')}>
                     <ListItemAvatar>
                         <Avatar>
-                            <EmojiEmotionsOutlinedIcon />
+                            <EmojiEmotionsOutlined />
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary="Editar Perfil" />

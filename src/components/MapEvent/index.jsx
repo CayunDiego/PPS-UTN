@@ -15,7 +15,7 @@ const MapEvent = ({handleChangeLocation}) => {
                                                         lat: -31.4135000,
                                                         lng: -64.1810500
                                                     }});
-    const [adress, setAdress] = useState('Searching for the address...');
+    const [address, setAdress] = useState('Searching for the address...');
     const [hasLocation, sethasLocation] = useState(false);
     const [marker, setmarker] = useState(null);
     const [zoom, setzoom] = useState(13);
@@ -57,15 +57,14 @@ const MapEvent = ({handleChangeLocation}) => {
         const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=geojson&lat=${location.latlng.lat}&lon=${location.latlng.lng}`);
         const data = await res.json();
         // console.log(data.features[0]);
-        const address = data.features[0].properties.address;
-        const displayAddress = `${address.amenity ? `${address.amenity},`:`${address.road}`} ${address.house_number ? `${address.house_number},` : ''} ${address.suburb}, ${address.city}`;
+        const addressData = data.features[0].properties.address;
+        const displayAddress = `${addressData.amenity ? `${addressData.amenity},`:`${addressData.road}`} ${addressData.house_number ? `${addressData.house_number},` : ''} ${addressData.suburb}, ${addressData.city}`;
         setAdress(displayAddress);
     }
 
     useEffect(()=>{
         getDireccion(location)
         if(hasLocation){
-           
             setmarker(<Marker 
                         draggable
                         position={location.latlng}
@@ -76,7 +75,7 @@ const MapEvent = ({handleChangeLocation}) => {
                         <Popup>
                             <h1>Estoy acá</h1>
                             <h3>
-                                {adress}
+                                {address}
                             </h3>
                             <p>log: {location.latlng.lat}</p>
                             <p>log: {location.latlng.lng}</p>
@@ -84,8 +83,8 @@ const MapEvent = ({handleChangeLocation}) => {
                     </Marker>)
                   
         }
-        handleChangeLocation(location, adress);
-    },[hasLocation,location,handleChangeLocation, adress]); 
+        handleChangeLocation(location, address);
+    },[hasLocation,location,handleChangeLocation, address]); 
 
     return (
             <Map

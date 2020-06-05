@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {useLocation} from 'wouter';
+import { useLocation } from 'wouter';
 
 const ButtonCustom = ({ name, url }) => {
     const [,pushLocation] = useLocation();

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import {useLocation} from 'wouter'
+import { BottomNavigation, BottomNavigationAction } from '@material-ui/core';
+import { AddCircle } from '@material-ui/icons';
+import { useLocation } from 'wouter';
 
 
 const BottomNav = () => {
@@ -30,7 +29,7 @@ const BottomNav = () => {
             >
             <BottomNavigationAction 
               label="Nueva Denuncia" 
-              icon={<AddCircleIcon />} 
+              icon={<AddCircle />} 
               onClick={()=>pushLocation('/NewDenuncia/')} 
               disabled={disable}/>
         </BottomNavigation>         

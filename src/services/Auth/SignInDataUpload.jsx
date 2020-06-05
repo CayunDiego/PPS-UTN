@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import {  useUser } from 'reactfire';
 import  { useLocation } from 'wouter';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { Button, CssBaseline, TextField, Typography, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import UserPhoto from '../../components/UserPhoto'
 import userHttpClient from '../../services/Api/user.httpClient'
 

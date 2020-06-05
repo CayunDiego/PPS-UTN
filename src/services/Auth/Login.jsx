@@ -1,8 +1,8 @@
 import React from 'react';
-import {useLocation} from 'wouter';
+import { useLocation } from 'wouter';
 import 'firebase/auth';
 import { useFirebaseApp } from 'reactfire'
-import Button from '@material-ui/core/Button'
+import { Button } from '@material-ui/core'
 
 const Login = ({email, password}) => {
     const firebase = useFirebaseApp();

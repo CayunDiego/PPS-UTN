@@ -1,12 +1,9 @@
 import React from 'react';
 import 'firebase/auth';
 import { useFirebaseApp, useUser } from 'reactfire';
-import {useLocation} from 'wouter';
+import { useLocation } from 'wouter';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import {ListItem, ListItemText, ListItemAvatar, Avatar } from '@material-ui/core';
 
 const Logout = () => {
     const [, pushLocation] = useLocation();

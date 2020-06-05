@@ -1,0 +1,151 @@
+{
+    "data": [
+      {
+        "ID": 7,
+        "CREATE_AT": "2020-06-05T04:39:58.000Z",
+        "DESCRIPTION": "linda",
+        "ADDRESS": "Iglesia de los Capuchinos,  Nueva Córdoba, Córdoba",
+        "LAT": -31.424186,
+        "LNG": -64.185648,
+        "PHOTO_URL": "",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 20,
+          "TYPE": "Arquitectura",
+          "COLOR": "ff5247a9"
+        },
+        "USER": {
+          "ID_U": "cDD7O1VMs1fxjJmvBnELDpsPNao2",
+          "DISPLAY_NAME": "Peridiegoc89",
+          "FIRST_NAME": "Diego",
+          "LAST_NAME": "Cayun",
+          "DOCUMENT": 33776314,
+          "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/profilePhoto%2FPokemon-Ash-y-Pikachu.jpg?alt=media&token=3747a977-7c5e-4c49-94dd-0698f6726914"
+        }
+      },
+      {
+        "ID": 6,
+        "CREATE_AT": "2020-06-04T23:46:43.000Z",
+        "DESCRIPTION": "soy otra denuncia sin usuario",
+        "ADDRESS": "Rondeau 245, Nueva Córdoba, Córdoba",
+        "LAT": -31.422866,
+        "LNG": -64.183327,
+        "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/DenunciaPhoto%2F39789196-sin-foto-de-perfil-de-usuario-ilustraci%C3%B3n-dibujados-a-mano.jpg?alt=media&token=77fe03bb-176c-46a0-bd40-63958eaa7770",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 38,
+          "TYPE": "Área Central",
+          "COLOR": "a61c6e08"
+        },
+        "USER": null
+      },
+      {
+        "ID": 5,
+        "CREATE_AT": "2020-06-04T23:44:15.000Z",
+        "DESCRIPTION": "soy una denuncia sin usuario",
+        "ADDRESS": "Rondeau 245, Nueva Córdoba, Córdoba",
+        "LAT": -31.422866,
+        "LNG": -64.183327,
+        "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/DenunciaPhoto%2F39789196-sin-foto-de-perfil-de-usuario-ilustraci%C3%B3n-dibujados-a-mano.jpg?alt=media&token=b3bc452e-63d3-4009-af45-ac4c7aa17e3a",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 15,
+          "TYPE": "Alumbrado",
+          "COLOR": "ffE19254"
+        },
+        "USER": null
+      },
+      {
+        "ID": 4,
+        "CREATE_AT": "2020-06-04T22:14:00.000Z",
+        "DESCRIPTION": "rotas",
+        "ADDRESS": "Rondeau 245, Nueva Córdoba, Córdoba",
+        "LAT": -31.422866,
+        "LNG": -64.183327,
+        "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/DenunciaPhoto%2Fdescarga%20(1).jpg?alt=media&token=ffe56a51-eae2-42a9-86f9-571c2c30a4d5",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 25,
+          "TYPE": "Ciclovías",
+          "COLOR": "ffc6528e"
+        },
+        "USER": {
+          "ID_U": "cDD7O1VMs1fxjJmvBnELDpsPNao2",
+          "DISPLAY_NAME": "Peridiegoc89",
+          "FIRST_NAME": "Diego",
+          "LAST_NAME": "Cayun",
+          "DOCUMENT": 33776314,
+          "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/profilePhoto%2FPokemon-Ash-y-Pikachu.jpg?alt=media&token=3747a977-7c5e-4c49-94dd-0698f6726914"
+        }
+      },
+      {
+        "ID": 3,
+        "CREATE_AT": "2020-06-03T20:47:46.000Z",
+        "DESCRIPTION": "p",
+        "ADDRESS": "Rondeau 245, Nueva Córdoba, Córdoba",
+        "LAT": -31.422866,
+        "LNG": -64.183327,
+        "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/DenunciaPhoto%2FArenales-1967-6-Ene-2016.jpg?alt=media&token=af6d3869-619f-444c-b7ca-d658f119856a",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 15,
+          "TYPE": "Alumbrado",
+          "COLOR": "ffE19254"
+        },
+        "USER": {
+          "ID_U": "Frw7Y3h5MAQas9Yf0C47DvTQ5UX2",
+          "DISPLAY_NAME": "MatiasG",
+          "FIRST_NAME": "Matias",
+          "LAST_NAME": "Guzman",
+          "DOCUMENT": 11222333,
+          "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/profilePhoto%2Fzetngo-2_400x400.jpg?alt=media&token=14054895-e58b-4088-ba4a-fcaf2a0014ba"
+        }
+      },
+      {
+        "ID": 2,
+        "CREATE_AT": "2020-05-31T04:46:39.000Z",
+        "DESCRIPTION": "Pozoooo",
+        "ADDRESS": "Obispo Trejo 1386, Nueva Córdoba, Córdoba",
+        "LAT": -31.431256,
+        "LNG": -64.192025,
+        "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/DenunciaPhoto%2FArenales-1967-6-Ene-2016.jpg?alt=media&token=af6d3869-619f-444c-b7ca-d658f119856a",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 16,
+          "TYPE": "Bacheo",
+          "COLOR": "ff72a6e9"
+        },
+        "USER": {
+          "ID_U": "cDD7O1VMs1fxjJmvBnELDpsPNao2",
+          "DISPLAY_NAME": "Peridiegoc89",
+          "FIRST_NAME": "Diego",
+          "LAST_NAME": "Cayun",
+          "DOCUMENT": 33776314,
+          "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/profilePhoto%2FPokemon-Ash-y-Pikachu.jpg?alt=media&token=3747a977-7c5e-4c49-94dd-0698f6726914"
+        }
+      },
+      {
+        "ID": 1,
+        "CREATE_AT": "2020-05-31T03:26:05.000Z",
+        "DESCRIPTION": "No hay luz",
+        "ADDRESS": "Rondeau 245, Nueva Córdoba, Córdoba",
+        "LAT": -31.422866,
+        "LNG": -64.183327,
+        "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/DenunciaPhoto%2FSin%20Luz.jpg?alt=media&token=90a05cc7-201a-4dae-a58c-aedfe0e68a4e",
+        "VOTE": 0,
+        "TYPE_WORK": {
+          "ID_TYPE": 15,
+          "TYPE": "Alumbrado",
+          "COLOR": "ffE19254"
+        },
+        "USER": {
+          "ID_U": "Frw7Y3h5MAQas9Yf0C47DvTQ5UX2",
+          "DISPLAY_NAME": "MatiasG",
+          "FIRST_NAME": "Matias",
+          "LAST_NAME": "Guzman",
+          "DOCUMENT": 11222333,
+          "PHOTO_URL": "https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/profilePhoto%2Fzetngo-2_400x400.jpg?alt=media&token=14054895-e58b-4088-ba4a-fcaf2a0014ba"
+        }
+      }
+    ]
+  }

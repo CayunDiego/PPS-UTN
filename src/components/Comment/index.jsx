@@ -1,6 +1,5 @@
 import React from 'react';
 import UserPhoto from '../UserPhoto';
-
 import moment from 'moment';
 import 'moment/locale/es';
 moment.locale('es');

@@ -1,9 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import typeWorkHttpClient from '../../services/Api/typeWork.httpClient';
 
-const FormData = ({handleChangeCausa, handleSelected}) => {
+const FormData = ({handleChangeState}) => {
     const [tipoObras, setTipoObras] = useState({});
-
 
     const getTipoObras =  async () => {
         const res = await typeWorkHttpClient.getAll();
@@ -24,15 +23,15 @@ const FormData = ({handleChangeCausa, handleSelected}) => {
 
     return (
         <div className='formData'>
-            <select name="" id="" onChange={handleSelected}>
+            <select name="idType" id="idType" onChange={handleChangeState}>
                 {createSelectItems()}
             </select>
             <input 
                 type="text" 
-                name="causa" 
-                id="causa"
-                placeholder='Causa'
-                onChange={handleChangeCausa}/>
+                name="description" 
+                id="description"
+                placeholder='description'
+                onChange={handleChangeState}/>
         </div>
     )
 }

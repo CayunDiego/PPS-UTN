@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useStorage } from 'reactfire';
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-
 
 
 const FileUpLoad = ({setUpload, folder}) => {

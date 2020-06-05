@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './profile.css';
-
-//components
 import EditUser from '../../components/EditUser';
 import EditUserName from '../../components/EditUserName';
 import EditPhoto from '../../components/EditPhoto';
