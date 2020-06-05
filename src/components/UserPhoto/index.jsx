@@ -4,14 +4,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
 
-const UserPhoto = ({tamanio='large', userData = null }) => {
+const UserPhoto = ({tamanio='large', userData = null, type='normal'}) => {
     const user = useUser();
     const classes = useStyles();
 
     let photoURL = 'unregistered user';
     let displayName = 'unregistered user';
 
-    if(user !== null){
+    if(user !== null && userData === null){
       photoURL = user.photoURL;
       displayName = user.displayName;
     }
@@ -19,6 +19,11 @@ const UserPhoto = ({tamanio='large', userData = null }) => {
     if(userData!==null){
       photoURL = userData.PHOTO_URL;
       displayName = userData.DISPLAY_NAME;
+    }
+
+    if(type === 'complaint' && userData===null){
+      photoURL = 'unregistered user';
+      displayName = 'unregistered user';
     }
     
     return ( 
@@ -48,6 +53,14 @@ const UserPhoto = ({tamanio='large', userData = null }) => {
                     className={classes.small}>X
                 </Avatar>
             }
+             {
+              tamanio === 'card' &&
+                <Avatar 
+                    alt={displayName} 
+                    src={photoURL} 
+                    className={classes.card}>X
+                </Avatar>
+            }
         </div>
      );
 }
@@ -72,5 +85,9 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(10),
     height: theme.spacing(10),
+  },
+  card: {
+    width: theme.spacing(5),
+    height: theme.spacing(5),
   },
 }));

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MapEvent from '../MapEvent';
 import FormData from './FormData';
 import FormPhoto from './FormPhoto';
-import Denuncia from '../Denuncia'
+import Complaint from '../Complaint'
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
@@ -108,9 +108,9 @@ const FormDenuncia = () => {
 
     const submit = async (denun) => {
         complaintHttpClient.post(denun);
-        setTimeout(()=>{
-            setform(<Denuncia dataDenuncia={denun}/>);
-        },1500);
+        // setTimeout(()=>{
+        //     setform(<Complaint dataDenuncia={denun}/>);
+        // },1500);
     }
 
     return (
