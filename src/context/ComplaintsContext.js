@@ -9,5 +9,4 @@ export const ComplaintsContextProvider = ({children}) => {
            </Context.Provider>
 }
 
-
 export default Context; 

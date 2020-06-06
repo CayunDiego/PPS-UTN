@@ -38,11 +38,23 @@ const post = async (body = {}) => {
   return data;
 }
 
-
+const deleteId = async (id) => {
+  const res = await fetch(`${url}/${id}`, {
+              method: 'DELETE',
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
+  });
+  const data = await res.json();
+  return data;
+}
 
 
 export default {
   getAll,
   post,
-  getUserId
+  getUserId,
+  deleteId,
 }
