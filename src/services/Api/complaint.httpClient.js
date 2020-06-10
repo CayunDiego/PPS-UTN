@@ -67,6 +67,20 @@ const deleteId = async (id) => {
   return data;
 }
 
+//actualiza solo el voto de la denuncia
+const put = async (id) => {
+  const res = await fetch(`${url}/${id}`, {
+              method: 'PUT',
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
+  });
+  const data = await res.json();
+  return data;
+}
+
 
 export default {
   getAll,
@@ -74,4 +88,5 @@ export default {
   post,
   getUserId,
   deleteId,
+  put
 }

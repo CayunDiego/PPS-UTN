@@ -3,11 +3,9 @@ import { useUser } from 'reactfire';
 import IconButton from '@material-ui/core/IconButton';
 import {HowToReg, Delete} from '@material-ui/icons';
 import complaintHttpClient from '../../services/Api/complaint.httpClient';
-
-
 import {useComplaintsUpdate} from '../../hooks/useComplaintsUpdate';
 
-const ButtonActionComplaint = ({userC, id}) => {
+const ButtonActionComplaint = ({userC, id, setVote}) => {
     const user = useUser();
     const { setClick } = useComplaintsUpdate();
 
@@ -17,9 +15,9 @@ const ButtonActionComplaint = ({userC, id}) => {
     }
 
     const handleVote = () => {
-        console.log(id);
+        complaintHttpClient.put(id);
+        setVote(prev => prev +1);
     }
-
 
     const buttonAction = () => {
         if(userC !== null){

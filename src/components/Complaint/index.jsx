@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './complaint.css';
 import moment from 'moment';
 import 'moment/locale/es';
@@ -10,6 +10,7 @@ import ButtonActionComplaint from '../ButtonActionComplaint'
 
 const Complaint = ({complaint, children}) => {
     const {ID, CREATE_AT, DESCRIPTION, ADDRESS, PHOTO_URL, VOTE, TYPE_WORK, USER, STATE} = complaint;
+    const [vote, setVote] = useState(VOTE);
     moment.locale('es');
     const date = moment(CREATE_AT).fromNow();
 
@@ -34,8 +35,8 @@ const Complaint = ({complaint, children}) => {
                 </div>
             </Link>
             <div className='CardActions'>
-                <p>Votos: {VOTE}</p>
-                <ButtonActionComplaint userC={USER} id={ID}/>
+                <p>Votos: {vote}</p>
+                <ButtonActionComplaint userC={USER} id={ID} setVote={setVote}/>
             </div>
             <div className='CardComment'>
                 {children}
