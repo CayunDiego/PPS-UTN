@@ -19,7 +19,7 @@ const Detail = ({params}) => {
             complaintHttpClient.getId(params.id)
                 .then(singleComplaint => setcomplaint(singleComplaint.data))
         }
-    },[]);
+    },[complaints.length,params.id]);
     
 
     return (

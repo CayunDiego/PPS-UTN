@@ -39,9 +39,23 @@ const post = async (body = {}) => {
     return data;
   }
   
+  //actualiza solo el voto del comentario
+const put = async (id) => {
+  const res = await fetch(`${url}/${id}`, {
+              method: 'PUT',
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
+  });
+  const data = await res.json();
+  return data;
+}
   
   export default {
     post,
     get,
-    deleteId
+    deleteId,
+    put
   }
