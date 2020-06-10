@@ -3,6 +3,7 @@ const url = 'http://localhost:4000/api/v1/complaint';
 const getAll = async () => {
   const res = await fetch(url, {
               method: 'GET',
+              mode: 'cors',
               headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -11,6 +12,21 @@ const getAll = async () => {
   const data = await res.json();
   return data;
 }
+
+const getId = async (id) => {
+  const res = await fetch(`${url}/${id}`, {
+              method: 'GET',
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
+  });
+  const data = await res.json();
+  return data;
+}
+
+
 
 const getUserId = async (user) => {
   const res = await fetch(`${url}/user/${user.uid}`, {
@@ -54,6 +70,7 @@ const deleteId = async (id) => {
 
 export default {
   getAll,
+  getId,
   post,
   getUserId,
   deleteId,
