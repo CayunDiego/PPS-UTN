@@ -1,34 +1,11 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
-import complaintHttpClient from '../../services/Api/complaint.httpClient';
-import { useUser } from 'reactfire';
+import React, { Fragment } from 'react';
 import Denuncias from '../Denuncias';
-import ComplaintsContext from '../../context/ComplaintsContext';
-//MOCK
-import complaintsJSON from '../../mock/complaints.json'
+import {useComplaints} from '../../hooks/useComplaints';
+import {useComplaintsById} from '../../hooks/useComplaintsById'
 
 const SectionDenuncia = ({state}) => {
-    const user = useUser();
-    const [complaintsUser, setcomplaintsUser] = useState({});
-    const {complaints, setComplaints} = useContext(ComplaintsContext);
-
-    const getComplaints = async () => {
-        const res = await complaintHttpClient.getAll();
-        
-        setComplaints(res.data);
-    }
-
-    const getComplaintUser = async () => {
-        const res = await complaintHttpClient.getUserId(user);
-        setcomplaintsUser(res.data);
-    }
-
-    useEffect(()=> {
-        // getComplaintUser();
-        process.env.REACT_APP_MOCK_COMPLAINT === "true" 
-            ? setComplaints(complaintsJSON.data)
-            : getComplaints();
-    },[]);
-
+    const { complaints } = useComplaints();
+    const {complaintsUser} = useComplaintsById();
 
     return (
             state===0 
