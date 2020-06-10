@@ -4,16 +4,12 @@ import commentHttpClient from '../../services/Api/comment.httpClient'
 
 const ListOfComment = ({idComplaint, newComment}) => {
   const [comments, setComments] = useState([]);
-    //tengo que recuperar los comentarios
-  //   const getComments = async () => {
-  //     const res = await commentHttpClient.get(idComplaint);
-  //     setComments(res.data);
-  // }
+  const [deleted, setdeleted] = useState(false)
 
   useEffect(()=> {
     commentHttpClient.get(idComplaint)
       .then(res => setComments(res.data));
-  },[newComment,idComplaint]);
+  },[newComment,idComplaint, deleted]);
 
     return (
           <div>
@@ -21,10 +17,12 @@ const ListOfComment = ({idComplaint, newComment}) => {
               comments.map( ({ID_C,COMMENT, CREATE_AT,VOTE,USER}) => 
                 <Comment 
                     key={ID_C} 
+                    idC ={ID_C}
                     comment={COMMENT} 
                     createAt={CREATE_AT}
                     vote={VOTE}
                     user={USER}
+                    setdeleted={setdeleted}
                 />
             )
             }
