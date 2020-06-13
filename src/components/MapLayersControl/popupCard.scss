@@ -1,0 +1,21 @@
+.popupCard{
+    // background: rgb(235, 241, 236);
+    // box-shadow: 1px 0px 100px rgba(0,0,0,0.5);
+    position: fixed;
+   
+    top: 100%;
+    z-index: 200;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &.open{
+        transform: translateY(-130%);
+    }
+}
+
+.buttonPopup{
+    background: #44ca97;
+    border: none;
+}

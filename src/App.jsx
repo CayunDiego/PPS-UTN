@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import AuthConfirm from './pages/AuthConfirm';
 import NewDenuncia from './pages/NewDenuncia';
 import Detail from './pages/Detail';
+import MapComplaints from './pages/MapComplaints';
 
 //conntext
 import { ComplaintsContextProvider } from './context/ComplaintsContext';
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/signin/" component={AuthConfirm}/>
                 <Route path="/newdenuncia/" component={NewDenuncia}/>
                 <Route path="/denuncia/:id" component={Detail}/>
+                <Route path="/maps/" component={MapComplaints}/>
               </ComplaintsContextProvider>
           </AuthCheck>
       </div>

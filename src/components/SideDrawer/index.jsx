@@ -2,7 +2,7 @@ import React from 'react';
 import { useUser } from 'reactfire';
 import { makeStyles } from '@material-ui/core/styles';
 import {List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider} from '@material-ui/core';
-import { EmojiEmotionsOutlined } from '@material-ui/icons';
+import { EmojiEmotionsOutlined, PersonPinOutlined } from '@material-ui/icons';
 import UserPhoto from '../UserPhoto';
 import Copyright from '../Copyright';
 import Logout from '../../services/Auth/Logout'
@@ -37,6 +37,14 @@ const SideDrawer = ({show}) => {
                 {/* <ListItem button>
                     <ListItemText primary="ALGO" />
                 </ListItem> */}
+                 <ListItem button onClick={()=>pushLocation('/maps/')}>
+                    <ListItemAvatar>
+                        <Avatar>
+                            <PersonPinOutlined />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Mapa Denuncias" />
+                </ListItem>
                 <Logout/>
             </List>
             <div className='footerDrawer'>

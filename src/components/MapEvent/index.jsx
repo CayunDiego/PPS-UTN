@@ -71,7 +71,6 @@ const MapEvent = ({handleChangeLocation}) => {
                         icon={icon}
                         onDragend={updatePosition}
                         ref={refmarker}>
-                        >
                         <Popup>
                             <h1>Estoy acá</h1>
                             <h3>

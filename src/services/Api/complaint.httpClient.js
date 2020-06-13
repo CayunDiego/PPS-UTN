@@ -31,6 +31,7 @@ const getId = async (id) => {
 const getUserId = async (user) => {
   const res = await fetch(`${url}/user/${user.uid}`, {
               method: 'GET',
+              mode: 'cors',
               headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
@@ -81,6 +82,19 @@ const put = async (id) => {
   return data;
 }
 
+//http://localhost:4000/api/v1/complaint/locate/-31.4312/-64.1920
+const getLocation = async (lat, lng) => {
+  const res = await fetch(`${url}/locate/${lat}/${lng}`, {
+              method: 'GET',
+              mode: 'cors',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+              }
+  });
+  const data = await res.json();
+  return data;
+}
 
 export default {
   getAll,
@@ -88,5 +102,6 @@ export default {
   post,
   getUserId,
   deleteId,
-  put
+  put,
+  getLocation
 }

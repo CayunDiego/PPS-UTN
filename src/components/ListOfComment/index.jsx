@@ -1,18 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import Comment from '../Comment';
-import commentHttpClient from '../../services/Api/comment.httpClient'
+import commentHttpClient from '../../services/Api/comment.httpClient';
+import SwitchLabels from './SwitchLabels'
 
 const ListOfComment = ({idComplaint, newComment}) => {
   const [comments, setComments] = useState([]);
-  const [deleted, setdeleted] = useState(false)
+  const [deleted, setdeleted] = useState(false);
+  const [checked, setChecked] = React.useState(false);
+  
+  const ordenarVote = () => {
+    comments.sort(function (a, b) {
+      return b.VOTE - a.VOTE;
+    });
+  }
+
+  const ordenarId = () => {
+    comments.sort(function (a, b) {
+      return b.ID_C - a.ID_C;
+    });
+  }
 
   useEffect(()=> {
     commentHttpClient.get(idComplaint)
       .then(res => setComments(res.data));
   },[newComment,idComplaint, deleted]);
 
+  useEffect(()=> {
+    checked === false ? ordenarVote() : ordenarId();
+  },[ordenarVote,ordenarId,checked]);
+
     return (
           <div>
+            <SwitchLabels checked={checked} setChecked={setChecked}/>
             {
               comments.map( ({ID_C,COMMENT, CREATE_AT,VOTE,USER}) => 
                 <Comment 
