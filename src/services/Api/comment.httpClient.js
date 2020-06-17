@@ -41,7 +41,7 @@ const post = async (body = {}) => {
   
   //actualiza solo el voto del comentario
 const put = async (id) => {
-  const res = await fetch(`${url}/${id}`, {
+  const res = await fetch(`${url}/${id}/upvote`, {
               method: 'PUT',
               mode: 'cors',
               headers: {

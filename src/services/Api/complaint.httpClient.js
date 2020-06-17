@@ -26,10 +26,8 @@ const getId = async (id) => {
   return data;
 }
 
-
-
 const getUserId = async (user) => {
-  const res = await fetch(`${url}/user/${user.uid}`, {
+  const res = await fetch(`${url}/?userid=${user.uid}`, {
               method: 'GET',
               mode: 'cors',
               headers: {
@@ -70,7 +68,7 @@ const deleteId = async (id) => {
 
 //actualiza solo el voto de la denuncia
 const put = async (id) => {
-  const res = await fetch(`${url}/${id}`, {
+  const res = await fetch(`${url}/${id}/upvote`, {
               method: 'PUT',
               mode: 'cors',
               headers: {
@@ -82,9 +80,9 @@ const put = async (id) => {
   return data;
 }
 
-//http://localhost:4000/api/v1/complaint/locate/-31.4312/-64.1920
+//http://localhost:4000/api/v1/complaint/?lat=-31.4312&lng=-64.1920
 const getLocation = async (lat, lng) => {
-  const res = await fetch(`${url}/locate/${lat}/${lng}`, {
+  const res = await fetch(`${url}/?lat=${lat}&lng=${lng}`, {
               method: 'GET',
               mode: 'cors',
               headers: {
