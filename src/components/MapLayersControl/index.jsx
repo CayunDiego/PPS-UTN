@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react'
 import {Map, Marker, Popup, TileLayer, LayersControl, Circle, LayerGroup} from 'react-leaflet';
 import { Icon } from 'leaflet';
 import complaintHttpClient from '../../services/Api/complaint.httpClient';
+import UseGlobalComplaints from '../../hooks/UseGlobalComplaints';
 
 const {BaseLayer} = LayersControl;
 
@@ -76,8 +77,9 @@ const MapLayersControl = ({setsideDraweOpen}) => {
                       })
     }
 
-    const showComplaintsByState = estado => {
-      const complaintsByState = complaints.filter( complaint => complaint.STATE === estado);
+    const showComplaintsByState = estado => { 
+      const complaintsGlobal = UseGlobalComplaints();
+      const complaintsByState = complaintsGlobal.filter( complaint => complaint.STATE === estado);
       return  complaintsByState.map(complaint => {
         return <Marker key={complaint.ID} position={[complaint.LAT, complaint.LNG]}>
            <Popup>
