@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import ComplaintsContext from '../context/ComplaintsContext';
 import complaintsJSON from '../mock/complaints.json';
 import complaintHttpClient from '../services/Api/complaint.httpClient';
-import { addSessionStorage } from '../helpers/sessionStorage';
+import { addSessionStorage, addSessionStorageComment } from '../helpers/sessionStorage';
 import {  useUser } from 'reactfire';
 
 export const useComplaints = () => {
@@ -16,6 +16,7 @@ export const useComplaints = () => {
             : complaintHttpClient.getAll()
                 .then(async res => {
                     await addSessionStorage(user);
+                    await addSessionStorageComment(user);
                     setComplaints(res.data);
                 })
     },[setComplaints, addSessionStorage]);
