@@ -13,6 +13,7 @@ const Logout = () => {
      //Cierra Sesión
      const logout = async () => {
         await firebase.auth().signOut();
+        sessionStorage.clear();
         pushLocation('/');
     }
 

@@ -7,6 +7,7 @@ const SectionDenuncia = ({state}) => {
     const { complaints } = useComplaints();
     const {complaintsUser} = useComplaintsById();
 
+
     return (
             state===0 
                 ?   <Fragment>
