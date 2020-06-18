@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import Denuncias from '../Denuncias';
+import ListOfComplaints from '../ListOfComplaints';
 import {useComplaints} from '../../hooks/useComplaints';
 import {useComplaintsById} from '../../hooks/useComplaintsById'
 
@@ -11,10 +11,10 @@ const SectionDenuncia = ({state}) => {
     return (
             state===0 
                 ?   <Fragment>
-                        <Denuncias complaints={complaints}/>
+                        <ListOfComplaints complaints={complaints}/>
                     </Fragment>
                 :   <Fragment>
-                        <Denuncias complaints={complaintsUser}/>
+                        <ListOfComplaints complaints={complaintsUser}/>
                     </Fragment>
     )
 }

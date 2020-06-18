@@ -3,13 +3,11 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-const SwitchLabels = ({checked, setChecked}) => {
+const SwitchOrdenar = ({checked, setChecked}) => {
 
   const handleChange = () => {
     setChecked(prev => !prev);
   };
-
-  
 
   return (
     <FormGroup row>
@@ -22,11 +20,11 @@ const SwitchLabels = ({checked, setChecked}) => {
             color="primary"
           />
         }
-        label="Por Votos"
+        label="Ordenar Por Votos"
       />
 
     </FormGroup>
   );
 }
 
-export default SwitchLabels;
+export default SwitchOrdenar;

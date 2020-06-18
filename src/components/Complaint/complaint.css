@@ -3,7 +3,8 @@
     min-height: 356px;
     max-width: 345px;
     min-width: 300px;
-    margin: 30px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.21);
     -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.21);
     box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.21);
@@ -15,7 +16,7 @@
 }
 
 .CardHeader{
-    height: 40px;
+    min-height: 40px;
     padding: 16px;
     border-radius: 8px 8px 0px 0px;
     -moz-border-radius: 8px 8px 0px 0px;
@@ -35,14 +36,13 @@
     height: 100%;
 }
 
-
 .CardContent{
     min-height: 54px;
     padding: 8px 16px 8px 16px;
 }
 
 .CardActions{
-    height: 30px;
+    min-height: 30px;
     padding: 8px 16px 8px 16px;
     border-radius: 0px 0px 8px 8px;
     -moz-border-radius: 0px 0px 8px 8px;
