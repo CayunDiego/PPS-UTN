@@ -2,7 +2,6 @@
     // background: rgb(235, 241, 236);
     // box-shadow: 1px 0px 100px rgba(0,0,0,0.5);
     position: fixed;
-   
     top: 100%;
     z-index: 200;
     transform: translateY(100%);
@@ -10,12 +9,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    &.open{
+    &--open{
+        @extend .popupCard;
         transform: translateY(-130%);
     }
-}
-
-.buttonPopup{
-    background: #44ca97;
-    border: none;
+    &__button{
+        background: $primaryGreen;
+        border: none;
+    }
 }

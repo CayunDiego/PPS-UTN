@@ -11,9 +11,9 @@ import { useLocation } from 'wouter';
 const SideDrawer = ({show}) => {
     const [, pushLocation] = useLocation();
     const user = useUser();
-    let drawerClasses = 'side-drawer';
+    let drawerClasses = 'sideDrawer';
     if(show){
-        drawerClasses = 'side-drawer open';
+        drawerClasses = 'sideDrawer--open';
     }
     const classes = useStyles();
 
@@ -21,9 +21,9 @@ const SideDrawer = ({show}) => {
         <nav className={drawerClasses}>
             <List component="nav" className={classes.root} aria-label="mailbox folders">
                 <ListItem button divider>
-                    <div className='perfil'>
+                    <div className='sideDrawer__profile'>
                         <UserPhoto tamanio='medium'/>
-                        <div className='displayName'>{user && user.displayName}</div>
+                        <div className='sideDrawer__profile__displayName'>{user && user.displayName}</div>
                     </div>
                 </ListItem>
                 <ListItem button onClick={()=>pushLocation('/profile/')}>
@@ -47,7 +47,7 @@ const SideDrawer = ({show}) => {
                 </ListItem>
                 <Logout/>
             </List>
-            <div className='footerDrawer'>
+            <div className='sideDrawer__footer'>
                 <Divider/>
                 <Copyright/>
             </div>

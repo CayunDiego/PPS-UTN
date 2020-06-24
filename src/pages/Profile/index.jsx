@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './profile.css';
 import EditUser from '../../components/EditUser';
 import EditUserName from '../../components/EditUserName';
 import EditPhoto from '../../components/EditPhoto';
@@ -11,6 +10,7 @@ const Profile = () => {
                                           photoURL:''
                                           })
     const [editClicked, setEditClicked] = useState(false)
+
     return ( 
       <Layout>
           <div className='cardProfile'>

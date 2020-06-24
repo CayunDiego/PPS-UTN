@@ -30,7 +30,7 @@ const ListOfComment = ({idComplaint, newComment}) => {
   },[ordenarVote,ordenarId,checked]);
 
     return (
-          <div>
+          <section>
             <SwitchOrdenar checked={checked} setChecked={setChecked}/>
             {
               comments.map( ({ID_C,COMMENT, CREATE_AT,VOTE,USER}) => 
@@ -45,7 +45,7 @@ const ListOfComment = ({idComplaint, newComment}) => {
                 />
             )
             }
-          </div>
+          </section>
     )
 }
 

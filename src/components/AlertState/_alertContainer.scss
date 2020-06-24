@@ -9,23 +9,25 @@
     justify-content: center;
     font-size: 0.6em;
     font-weight: 700;
+    &--Publicada{
+        background: #44ca97;
+    }
+    &--Rechazada{
+        background: #bdbdbd;
+        color: rgb(80, 80, 80);
+    }
+    &--Ejecucion{
+        background: #ff5722;
+    }
+    &--Finalizada{
+        background: #44ca9780;
+        color: rgba(0, 0, 0, 0.644);
+    }
 }
 
-.Publicada{
-    background: #44ca97;
-}
 
-.Rechazada{
-    background: #bdbdbd;
-    color: rgb(80, 80, 80);
-}
 
-.Ejecucion{
-    background: #ff5722;
-}
 
-.Finalizada{
-    background: #44ca9780;
-    color: rgba(0, 0, 0, 0.644);
-}
+
+
 

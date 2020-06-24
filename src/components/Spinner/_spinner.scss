@@ -4,32 +4,30 @@
     height: 40px;
     position: relative;
     display: flex;
+    &__logoMuni{
+      width: 80px;
+      height: auto;
+      position: absolute;
+      top: 55px;
+      left: -20px;
+    }
+    &__cube1{
+      background-color: $primaryGreen;
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+      animation: sk-cubemove 1.8s infinite ease-in-out;
+    }
+    &__cube2{
+      @extend .spinner__cube1;
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    } 
   }
   
-  .cube1, .cube2 {
-    background-color: #00a665;
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    
-    -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
-    animation: sk-cubemove 1.8s infinite ease-in-out;
-  }
-
-  .logoMuni{
-    width: 80px;
-    height: auto;
-    position: absolute;
-    top: 55px;
-    left: -20px;
-  }
-  
-  .cube2 {
-    -webkit-animation-delay: -0.9s;
-    animation-delay: -0.9s;
-  }
   
   @-webkit-keyframes sk-cubemove {
     25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }

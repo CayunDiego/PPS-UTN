@@ -88,7 +88,7 @@ const FormDenuncia = () => {
     return (
             <div className='form'>
                 {form}
-                <div className='progress'>
+                <div className='form__progress'>
                     <MobileStepper
                     position='static'
                     variant="progress"

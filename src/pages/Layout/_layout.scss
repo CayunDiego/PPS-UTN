@@ -1,24 +1,19 @@
-.layout{
+@mixin layoutBase {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+.layout{
+    @include layoutBase;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
-    
-    //height: 100vh;
-    // background: rgb(201, 31, 201);
 }
 
 .layout2{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
+    @include layoutBase;
     align-content: center;
     min-height: 100vh;
-    //height: 100vh;
-    //background: rgb(201, 31, 201);
 }
-

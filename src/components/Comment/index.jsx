@@ -16,11 +16,11 @@ const Comment = ({idC,comment,createAt,vote,user, setdeleted}) => {
     const [color, setcolor] = useState(!isExistVoteComment(idC) ? 'primary' : 'inherit');
     const btnDelete = () => {
         return user.ID_U === uUser.uid  ?   <p 
-                                                className='btnDeleteComment' 
+                                                className='comment__btnDelete' 
                                                 onClick={handleDelete}>
                                                 Eliminar
                                             </p>
-                                        :   <div className='voteComment'>
+                                        :   <div className='comment__vote'>
                                                 <ThumbUpAltOutlinedIcon color={color} fontSize='inherit' onClick={handleVote}/>
                                             </div>
     }
@@ -40,16 +40,19 @@ const Comment = ({idC,comment,createAt,vote,user, setdeleted}) => {
     }
 
     return (
-            <div  className='containerComment'>
+            <article  className='comment'>
                 <UserPhoto tamanio='small' userData={user}/>
-                <div className='userComment'>
-                    <p className='comment'><span className='displayName'>{user.DISPLAY_NAME}</span> {comment}</p>
-                    <div className='footerComment'>
+                <div className='comment__content'>
+                    <p className='comment__text'>
+                        <span className='comment__text__displayName'>{user.DISPLAY_NAME}: </span>
+                        {comment}
+                    </p>
+                    <div className='comment__footer'>
                         {moment(createAt).fromNow()}    -   Votos: {voteCommet}
                         {btnDelete()}
                     </div>
                 </div>
-            </div>
+            </article>
     )
 }
 

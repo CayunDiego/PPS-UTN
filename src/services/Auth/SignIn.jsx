@@ -6,7 +6,7 @@ import { Button } from '@material-ui/core';
 
 const SignIn = ({email, password, username}) => {
     const [, pushLocation] = useLocation();
-    const userPhotoURL = 'https://yrlist.ru/portal/img/no_photo.png';
+    const userPhotoURL = 'https://firebasestorage.googleapis.com/v0/b/pps-monitoreociudadano.appspot.com/o/default%2Fusuario.svg?alt=media&token=f2a57817-b672-4679-baf6-b69ea20ed1ba';
     const firebase = useFirebaseApp();
 
     //Crea la cuenta

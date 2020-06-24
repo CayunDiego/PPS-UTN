@@ -1,4 +1,4 @@
-.containerComment{
+.comment{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -6,39 +6,33 @@
     -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-}
-
-.userComment{
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.comment{
-    width: 220px;
-}
-
-.footerComment{
-    margin-bottom: 5px;
-    color: grey;
-    width: 265px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8em;
-}
-
-.displayName{
-    font-weight: bold;
-}
-
-.btnDeleteComment{
-   color: #ff5722;
-}
-
-.voteComment{
-    font-size: 1.3em;
+    &__content{
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+        justify-content: space-between;
+        width: 100%;
+    }
+    &__text{
+        width: 220px;
+        &__displayName{
+            font-weight: bold;
+        }
+    }
+    &__footer{
+        padding: .5em 0;
+        color: $GrayishBlue;
+        width: 265px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8em;
+    }
+    &__btnDelete{
+        color: $secondaryOrange;
+    }
+    &__vote{
+        font-size: 1.3em;
+    }
 }

@@ -41,7 +41,7 @@ const User = ({editData, editClicked, setEditClicked}) => {
               <h1>{user.displayName}</h1>
               <p>{user.email}</p>
             </div>
-              <UserPhoto tamanio='large'/>
+            <UserPhoto tamanio='large'/>
           </div>
      );
 }

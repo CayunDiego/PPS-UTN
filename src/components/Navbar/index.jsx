@@ -10,7 +10,7 @@ const Navbar = ({click}) => {
 
     return (
         <nav className='navbar'>
-             <div className='container'>
+             <div className='navbar__container'>
                 <IconButton 
                     onClick={()=> pushLocation('/')}
                     aria-label="menu" 

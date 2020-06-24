@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './complaint.css';
 import moment from 'moment';
 import 'moment/locale/es';
 import { Link } from 'wouter';
@@ -15,30 +14,30 @@ const Complaint = ({complaint, children}) => {
     const date = moment(CREATE_AT).fromNow();
 
     return (
-        <div className='CardComplaint'>
+        <div className='cardComplaint'>
             
             <Link to={`/denuncia/${complaint.ID}`} key={complaint.ID} className='Link'>
-                <div className='CardHeader'>
+                <div className='cardComplaint__header'>
                     <UserPhoto tamanio='card' userData={USER} type='complaint'/>
-                    <div className='DataHeader'>
+                    <div className='cardComplaint__header__data'>
                         <p className='title'>{USER ? USER.DISPLAY_NAME : 'Usuario Sin Registrar'}</p>
                         <p>{date}</p>
                     </div>
                     <AlertState state={STATE}/>
                 </div>
-                <div className='CardMedia'>
-                    <img src={PHOTO_URL} alt="PHOTO_URL"/>
+                <div className='cardComplaint__media'>
+                    <img height='168' src={PHOTO_URL || './assets/no-image-available.jpg'} alt="PHOTO_URL"/>
                 </div>
-                <div className='CardContent'>
-                    <p className='address'>{ADDRESS}</p>
+                <div className='cardComplaint__content'>
+                    <small className='cardComplaint__content__address'>{ADDRESS}</small>
                     <p><span className='title'>{TYPE_WORK.TYPE}: </span>{DESCRIPTION}</p>
                 </div>
             </Link>
-            <div className='CardActions'>
+            <div className='cardComplaint__actions'>
                 <p>Votos: {vote}</p>
                 <ButtonActionComplaint userC={USER} id={ID} setVote={setVote}/>
             </div>
-            <div className='CardComment'>
+            <div className='cardComplaint__comment'>
                 {children}
             </div>
         </div>

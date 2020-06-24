@@ -1,7 +1,6 @@
 import React, { useState,useRef } from 'react';
 import { useUser } from 'reactfire';
 import commentHttpClient from '../../services/Api/comment.httpClient';
-import './formComment.css';
 import { Button, TextField, InputAdornment} from '@material-ui/core';
 import UserPhoto from '../UserPhoto';
 

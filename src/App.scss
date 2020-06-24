@@ -1,3 +1,4 @@
+@import './config/patterns';
 @import './pages/Layout/layout';
 @import './components/Footer/footer';
 @import './components/Section/section';
@@ -6,23 +7,21 @@
 @import './components/Navbar/navbar';
 @import './pages/Home/home';
 @import './components//EditUser/editUser';
-///////////////////////////////////////
 @import './components/SideDrawer/backdrop';
 @import './components/SideDrawer/sidedrawer';
-///////////////////////////////////////
-
 @import  './components/MapEvent/leafletStyles';
-///////////////////////////////////////
-
 @import './components/FormDenuncia/formdenuncia';
-
-
-////////////////
 @import './components/Comment/comment';
-
+@import './components/AlertState/alertContainer';
+@import './components/Complaint/complaint';
+@import './components/FormComment/formComment';
+@import './components/MapLayersControl/_popupCard';
+@import './components/Spinner/spinner';
+@import './pages/Profile/profile';
 
 .App {
-  background: rgb(235, 241, 236);
+  background: $LightGreen;
+  font-family: $mainFont;
 }
 
 *{
