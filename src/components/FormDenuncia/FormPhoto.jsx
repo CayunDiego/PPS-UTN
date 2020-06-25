@@ -9,9 +9,9 @@ const FormPhoto = ({handleChangePhoto}) => {
     },[newPhoto,handleChangePhoto]);
 
     return (
-        <div >
+        <div className='formUploadPhoto'>
             <FileUpLoad setUpload={setNewPhoto} folder='DenunciaPhoto'/> 
-            {newPhoto !== '' && <img src={newPhoto} alt="DenunciaPhoto" />}
+            {newPhoto !== '' && <img className='formUploadPhoto__photo' src={newPhoto} alt="DenunciaPhoto" />}
         </div>
     )
 }

@@ -60,11 +60,13 @@ const FormData = ({handleChangeState, setValidate}) => {
             <select name="idType" id="idType" onChange={handleSelect}>
                 {createSelectItems()}
             </select>
-            <input 
+            <textarea 
+                className='formData__description'
+                rows="6"
                 type="text" 
                 name="description" 
                 id="description"
-                placeholder='description'
+                placeholder='Description'
                 onChange={handleDescription}/>
         </div>
     )
