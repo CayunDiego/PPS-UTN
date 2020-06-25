@@ -89,14 +89,9 @@ const FormDenuncia = () => {
         },1300);
     }
 
-    const toValidate = (e) => {
-
-    }
-
     return (
             <div className='form'>
                 {form}
-                {console.log(validate)}
                 <div className='form__progress'>
                     <MobileStepper
                     position='static'

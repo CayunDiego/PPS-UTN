@@ -16,6 +16,10 @@ const FormData = ({handleChangeState, setValidate}) => {
         getTipoObras()
     },[]);
 
+    useEffect(() => {
+        validate()
+    });
+
     const createSelectItems = () =>  {
         let items = []; 
         items.push(<option key={0} value={0}>Elige un Tipo de Obra</option>);       
@@ -62,7 +66,6 @@ const FormData = ({handleChangeState, setValidate}) => {
                 id="description"
                 placeholder='description'
                 onChange={handleDescription}/>
-                {validate()}
         </div>
     )
 }

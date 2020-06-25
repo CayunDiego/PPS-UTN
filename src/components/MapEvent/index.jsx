@@ -54,12 +54,12 @@ const MapEvent = ({handleChangeLocation, setValidate}) => {
     }
 
     const getDireccion = async location => {
-        const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=geojson&lat=${location.latlng.lat}&lon=${location.latlng.lng}`);
-        const data = await res.json();
-        // console.log(data.features[0]);
-        const addressData = data.features[0].properties.address;
-        const displayAddress = `${addressData.amenity ? `${addressData.amenity},`:`${addressData.road}`} ${addressData.house_number ? `${addressData.house_number},` : ''} ${addressData.suburb}, ${addressData.city}`;
-        setAdress(displayAddress);
+        // const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=geojson&lat=${location.latlng.lat}&lon=${location.latlng.lng}`);
+        // const data = await res.json();
+        // // console.log(data.features[0]);
+        // const addressData = data.features[0].properties.address;
+        // const displayAddress = `${addressData.amenity ? `${addressData.amenity},`:`${addressData.road}`} ${addressData.house_number ? `${addressData.house_number},` : ''} ${addressData.suburb}, ${addressData.city}`;
+        // setAdress(displayAddress);
     }
 
     useEffect(()=>{
