@@ -3,13 +3,13 @@ import { useStorage } from 'reactfire';
 import { Button } from '@material-ui/core';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-
 const FileUpLoad = ({setUpload, folder}) => {
     const [ progress, setProgress ] = useState(0);
     const [ image, setImage ] = useState(null);
     const [ , setUrl ] = useState("");
     const [ error, setError ] = useState(null);
     const storage = useStorage();
+
 
     const handChange = e => {
         const file = e.target.files[0];
@@ -29,27 +29,32 @@ const FileUpLoad = ({setUpload, folder}) => {
         if(image){
             const storageRef = storage.ref(`/${folder}/${image.name}`);
             const uploadTask = storageRef.put(image);
-            uploadTask.on("state_changed", snapshot => {
-                const progress = Math.round((snapshot.bytesTransferred/snapshot.totalBytes)*100);
-                setProgress(progress);
+            uploadTask.on("state_changed", async snapshot => {
+                let progress = await Math.round((127823/snapshot.totalBytes)*100);
+                for (let index = 0; index <= progress; index++) {
+                    setTimeout(() => {
+                        setProgress(index);
+                    }, progress);
+                }
             }, error => {
                 setError(error);
             }, async () => {
                 const downloadUrl = await storage.ref(folder).child(image.name).getDownloadURL();
                 setUrl(downloadUrl);
                 setUpload(downloadUrl);
-                setProgress(0);
+                setProgress(100);
+                setTimeout(() => {
+                    setProgress(0);
+                }, 1000);
             });
         } else {
             setError("Error please choose an image to upload");
         }
     }
 
-
     return ( 
-        <div>
-            {progress > 0 ?  <progress value={progress} max="100" /> : ""}
-            <br/>
+        <div className='fileUpload'>
+            {progress > 0 ?  <><progress className='fileUpload__progress' value={progress} min="0" max="100"/><br/></> : ""}
             <input type="file" name="" id="" onChange={handChange}/>
             <br/>
             <br/>
@@ -61,14 +66,12 @@ const FileUpLoad = ({setUpload, folder}) => {
                     color="primary"
                     onClick={handleUpload}>
                     Subir Foto
-                </Button>
+            </Button>
+            <p className='fileUpload__error'>{error}</p>
             <br/>
             {/* { 
                 url && (<img src={url} alt="imagen" height="42" width="42"/>)
             } */}
-            <div>
-                <p>{error}</p>
-            </div>
         </div>
      );
 }

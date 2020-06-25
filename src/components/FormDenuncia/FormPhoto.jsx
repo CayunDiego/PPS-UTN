@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import FileUpLoad from '../../services/FileUpLoad'
+import FileUpLoad from '../../services/FileUpLoad';
 
 const FormPhoto = ({handleChangePhoto}) => {
     const [newPhoto, setNewPhoto] = useState('');

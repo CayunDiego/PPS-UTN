@@ -1,0 +1,13 @@
+.fileUpload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__error{
+        color: $secondaryOrange;
+    }
+    &__progress{
+        background-color: $primaryGreen;
+    }
+}
+
