@@ -1,0 +1,14 @@
+.switch{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    &__text{
+        margin-left: 16px;
+        font-size: .8em;
+    }
+    &__check{
+        margin-left: 10px;
+    }
+}
+

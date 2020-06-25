@@ -10,20 +10,22 @@ const SwitchOrdenar = ({checked, setChecked}) => {
   };
 
   return (
-    <FormGroup row>
+
+    <div className='switch'>
+      <p className='switch__text'>Ordenar por votos</p>
       <FormControlLabel
         control={
           <Switch
+          className='switch__check'
             checked={checked}
             onChange={handleChange}
             name="checkedB"
             color="primary"
           />
         }
-        label="Ordenar Por Votos"
       />
 
-    </FormGroup>
+    </div>
   );
 }
 
