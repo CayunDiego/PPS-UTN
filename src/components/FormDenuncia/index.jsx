@@ -15,6 +15,7 @@ const FormDenuncia = () => {
     const usuario = user !== null ? user.uid : null;   
     const theme = useTheme();
     const [, pushLocation] = useLocation();
+    const [validate, setValidate] = useState(false)
     const [activeStep, setActiveStep] = useState(0);
     const [form, setform] = useState('');                                          
     const [newComplaint, setNewComplaint] = useState({  'description': '',
@@ -22,7 +23,7 @@ const FormDenuncia = () => {
                                                         'lat': -31.413500,
                                                         'lng': -64.181050,
                                                         'photoURL': '',
-                                                        'idType': 15,
+                                                        'idType': 0,
                                                         'idUser': usuario
                                                         });
       //Lee los datos del formulario
@@ -60,11 +61,14 @@ const FormDenuncia = () => {
 
     
     useEffect(()=>{
+        console.log('useEffect')
             if(activeStep === 0){
-                setform(<MapEvent handleChangeLocation={handleChangeLocation}/>)
+                setValidate(false);
+                setform(<MapEvent handleChangeLocation={handleChangeLocation} setValidate={setValidate}/>)
             }
             if(activeStep === 1){
-                setform(<FormData handleChangeState={handleChangeState}/>)
+                setValidate(false);
+                setform(<FormData handleChangeState={handleChangeState} setValidate={setValidate}/>)
             }
             if(activeStep === 2){
                 setform(<FormPhoto handleChangePhoto={handleChangePhoto}/>);
@@ -85,9 +89,14 @@ const FormDenuncia = () => {
         },1300);
     }
 
+    const toValidate = (e) => {
+
+    }
+
     return (
             <div className='form'>
                 {form}
+                {console.log(validate)}
                 <div className='form__progress'>
                     <MobileStepper
                     position='static'
@@ -95,7 +104,7 @@ const FormDenuncia = () => {
                     steps={4}
                     activeStep={activeStep}
                     nextButton={
-                        <Button size="small" onClick={handleNext} disabled={activeStep === 3}>
+                        <Button size="small" onClick={handleNext} disabled={activeStep === 3 || !validate}>
                         Next
                         {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
                         </Button>

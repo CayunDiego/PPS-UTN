@@ -10,7 +10,7 @@ const icon = new Icon({
     popupAnchor: [-2, -35],
 });
 
-const MapEvent = ({handleChangeLocation}) => {
+const MapEvent = ({handleChangeLocation, setValidate}) => {
     const [location, setLocation] = useState( {latlng: {
                                                         lat: -31.4135000,
                                                         lng: -64.1810500
@@ -80,7 +80,7 @@ const MapEvent = ({handleChangeLocation}) => {
                             <p>log: {location.latlng.lng}</p>
                         </Popup>
                     </Marker>)
-                  
+            setValidate(true);
         }
         handleChangeLocation(location, address);
     },[hasLocation,location,handleChangeLocation, address]); 
