@@ -18,3 +18,32 @@
         border: none;
     }
 }
+
+.popupmini{
+    &__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    p{
+        margin: 0;
+        padding: 1em 0;
+    }
+    &__photo{
+        padding: 0 1em;
+        width: 80px;
+    }
+    &__button{
+        background: transparent;
+        border: 2px solid $primaryGreen;
+        border-radius: 6px;
+        padding: .5em 1em;
+        cursor: pointer;
+        text-transform: uppercase;
+        &:hover {
+            background-color: $LightGreen;
+            padding: .5em 1.3em;
+       }
+    }
+}

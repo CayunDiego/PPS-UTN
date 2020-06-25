@@ -62,9 +62,12 @@ const MapLayersControl = ({setsideDraweOpen}) => {
     const showComplaints = () => {
           return  complaints.map(complaint => {
              return <Marker key={complaint.ID} position={[complaint.LAT, complaint.LNG]}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                  <button onClick={() => handdlePopup(complaint)}>Ver mas</button>
+                <Popup className='popupmini'>
+                  <div className='popupmini__content'>
+                    <img className='popupmini__photo' src={complaint.PHOTO_URL} alt={complaint.ID}/>
+                    <p>{complaint.TYPE_WORK.TYPE}</p>
+                    <button className='popupmini__button'onClick={() => handdlePopup(complaint)}>Ver mas</button>
+                  </div>
                 </Popup>
               </Marker>
             
