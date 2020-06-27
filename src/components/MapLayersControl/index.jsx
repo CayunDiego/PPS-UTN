@@ -1,18 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {Map, Marker, Popup, TileLayer, LayersControl, Circle, LayerGroup} from 'react-leaflet';
-import { Icon } from 'leaflet';
 import complaintHttpClient from '../../services/Api/complaint.httpClient';
-import UseGlobalComplaints from '../../hooks/UseGlobalComplaints';
+import { useComplaints } from '../../hooks/useComplaints';
+import iconsPopup from '../../helpers/iconsPopup';
 
 const {BaseLayer} = LayersControl;
 
-const icon = new Icon({
-  iconUrl: '/assets/iconoMapa.svg',
-  iconSize: [50,50],
-  // iconAnchor: [70, 30],
-  // popupAnchor: [-22, -15],
-  popupAnchor: [-2, -35],
-});
 
 const MapLayersControl = ({setsideDraweOpen}) => {
     const [location, setLocation] = useState( {latlng: {
@@ -22,8 +15,8 @@ const MapLayersControl = ({setsideDraweOpen}) => {
     const [hasLocation, sethasLocation] = useState(false);
     const [marker, setmarker] = useState(null);
     const [zoom, setzoom] = useState(14);
-    const [complaints, setcomplaints] = useState([]);
-
+    const [complaintsLocation, setcomplaintsLocation] = useState([]);
+    const { complaints } = useComplaints();
 
     const mapRef = useRef();
     const refmarker = useRef();
@@ -32,7 +25,7 @@ const MapLayersControl = ({setsideDraweOpen}) => {
     const handleClick = () => {
         const map = mapRef.current;
         if (map !== null) {
-            map.leafletElement.locate();
+            map.leafletElement.locate()
         }
     }
 
@@ -60,18 +53,32 @@ const MapLayersControl = ({setsideDraweOpen}) => {
 
     //pines
     const showComplaints = () => {
-          return  complaints.map(complaint => {
+          return  complaintsLocation.map(complaint => {
              return <Marker key={complaint.ID} position={[complaint.LAT, complaint.LNG]}>
-                <Popup className='popupmini'>
-                  <div className='popupmini__content'>
+                      <Popup className='popupmini'>
+                          <div className='popupmini__content'>
+                          <img className='popupmini__photo' src={complaint.PHOTO_URL} alt={complaint.ID}/>
+                          <p>{complaint.TYPE_WORK.TYPE}</p>
+                          <button className='popupmini__button'onClick={() => handdlePopup(complaint)}>Ver mas</button>
+                          </div>
+                      </Popup>
+                    </Marker>
+            })
+    }
+
+    const showComplaintsByState = estado => { 
+      const complaintsByState = complaints.filter( complaint => complaint.STATE === estado);
+      return  complaintsByState.map(complaint => {
+        return  <Marker key={complaint.ID} position={[complaint.LAT, complaint.LNG]} icon={iconsPopup.iconVariant(estado)}>
+                  <Popup className='popupmini'>
+                    <div className='popupmini__content'>
                     <img className='popupmini__photo' src={complaint.PHOTO_URL} alt={complaint.ID}/>
                     <p>{complaint.TYPE_WORK.TYPE}</p>
                     <button className='popupmini__button'onClick={() => handdlePopup(complaint)}>Ver mas</button>
-                  </div>
-                </Popup>
-              </Marker>
-            
-            })
+                    </div>
+                  </Popup>
+                </Marker>
+       })
     }
 
     const handdlePopup = complaint => {
@@ -80,25 +87,12 @@ const MapLayersControl = ({setsideDraweOpen}) => {
                       })
     }
 
-    const showComplaintsByState = estado => { 
-      const complaintsGlobal = UseGlobalComplaints();
-      const complaintsByState = complaintsGlobal.filter( complaint => complaint.STATE === estado);
-      return  complaintsByState.map(complaint => {
-        return <Marker key={complaint.ID} position={[complaint.LAT, complaint.LNG]}>
-           <Popup>
-             A pretty CSS3 popup. <br /> Easily customizable.
-             <button onClick={() => handdlePopup(complaint)}>Ver mas</button>
-           </Popup>
-         </Marker>
-       })
-    }
-
     useEffect(()=>{
         if(hasLocation){
             setmarker(<Marker 
                         draggable
                         position={location.latlng}
-                        icon={icon}
+                        icon={iconsPopup.icon}
                         onDragend={updatePosition}
                         ref={refmarker}>
                         <Circle center={location.latlng} fillColor="blue" radius={1350} />
@@ -112,7 +106,7 @@ const MapLayersControl = ({setsideDraweOpen}) => {
             //TRAEMOS LAS DENUNCIAS SEGUN LA UBICACION
             complaintHttpClient.getLocation(location.latlng.lat,location.latlng.lng)
             .then(res  => {
-              setcomplaints(res.data);
+              setcomplaintsLocation(res.data);
             });
         }
     },[hasLocation,location]); 

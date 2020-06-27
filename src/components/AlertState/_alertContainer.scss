@@ -10,17 +10,19 @@
     font-size: 0.6em;
     font-weight: 700;
     &--Publicada{
-        background: #44ca97;
+        background: $publicada;
+        color: rgb(255, 255, 255);
     }
     &--Rechazada{
-        background: #bdbdbd;
-        color: rgb(80, 80, 80);
+        background: $Rechazada;
+        color: rgb(255, 255, 255);
     }
     &--Ejecucion{
-        background: #ff5722;
+        background: $Ejecucion;
+        color: rgb(255, 255, 255);
     }
     &--Finalizada{
-        background: #44ca9780;
+        background: $Finalizada;
         color: rgba(0, 0, 0, 0.644);
     }
 }

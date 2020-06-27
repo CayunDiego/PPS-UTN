@@ -1,14 +1,15 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Map, Marker, Popup, TileLayer} from 'react-leaflet';
 import { Icon } from 'leaflet';
+import iconsPopup from '../../helpers/iconsPopup';
 
-const icon = new Icon({
-    iconUrl: '/assets/iconoMapa.svg',
-    iconSize: [100,100],
-    // iconAnchor: [70, 30],
-    // popupAnchor: [-22, -15],
-    popupAnchor: [-2, -35],
-});
+// const icon = new Icon({
+//     iconUrl: '/assets/iconoMapa.svg',
+//     iconSize: [100,100],
+//     // iconAnchor: [70, 30],
+//     // popupAnchor: [-22, -15],
+//     popupAnchor: [-2, -35],
+// });
 
 const MapEvent = ({handleChangeLocation, setValidate}) => {
     const [location, setLocation] = useState( {latlng: {
@@ -68,16 +69,14 @@ const MapEvent = ({handleChangeLocation, setValidate}) => {
             setmarker(<Marker 
                         draggable
                         position={location.latlng}
-                        icon={icon}
+                        icon={iconsPopup.icon}
                         onDragend={updatePosition}
                         ref={refmarker}>
                         <Popup>
-                            <h1>Estoy acá</h1>
-                            <h3>
-                                {address}
-                            </h3>
-                            <p>log: {location.latlng.lat}</p>
-                            <p>log: {location.latlng.lng}</p>
+                            <h1>Usted está aquí!</h1>
+                            <h5>
+                                {address}.
+                            </h5>
                         </Popup>
                     </Marker>)
             setValidate(true);

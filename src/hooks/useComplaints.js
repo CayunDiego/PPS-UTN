@@ -20,6 +20,5 @@ export const useComplaints = () => {
                     setComplaints(res.data);
                 })
     },[setComplaints, addSessionStorage]);
-
     return { complaints }
 }
