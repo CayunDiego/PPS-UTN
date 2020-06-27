@@ -31,6 +31,21 @@ const Auth = ({type}) => {
                 {type}
                 </Typography>
                 <form className={classes.form} onSubmit={handleSubmit}>
+                        {type === 'Sign in' &&
+                          <Fragment>
+                              <TextField
+                                  margin="normal"
+                                  required
+                                  fullWidth
+                                  type="text"
+                                  id="username"
+                                  label="User Name"
+                                  name="username"
+                                  autoComplete="username"
+                                  onChange={ ev => setUserName(ev.target.value)}
+                                  />
+                          </Fragment>
+                        }
                         <TextField
                             margin="normal"
                             required
@@ -55,20 +70,7 @@ const Auth = ({type}) => {
                             onChange={ ev => setPassword(ev.target.value)}
                         />
                         {type === 'Sign in' &&
-                        <Fragment>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                type="text"
-                                id="username"
-                                label="User Name"
-                                name="username"
-                                autoComplete="username"
-                                onChange={ ev => setUserName(ev.target.value)}
-                                />
                             <SignIn email={email} password={password} username={userName}/>
-                        </Fragment>
                         }
                         {type === 'Log In' &&
                             <Fragment>

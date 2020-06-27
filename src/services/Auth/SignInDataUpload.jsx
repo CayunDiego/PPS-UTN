@@ -13,19 +13,34 @@ const SignInDataUpload = () => {
     const [documento, setdocumento] = useState('');
     const user = useUser();
     const classes = useStyles();
+    const [error, setError] = useState(null);
 
     const handleSubmit = async e => {
        e.preventDefault();
-        const datosUser = {
-                            idUser: user.uid,
-                            displayName: user.displayName,
-                            firstName: nombre,
-                            lastName: apellido,
-                            document: documento,
-                            photoURL: user.photoURL
-                          }
-        await userHttpClient.post(datosUser);
-        pushLocation('/');
+        if(nombre === ''){
+          setError('Error: Ingrese Nombre.');
+        } else {
+          if(apellido === ''){
+            setError('Error: Ingrese Apellido.');
+          } else {
+            if(documento === ''){
+              setError('Error: Ingrese su numero de Documento.');
+            }
+            else {
+              setError(null);
+              const datosUser = {
+                idUser: user.uid,
+                displayName: user.displayName,
+                firstName: nombre,
+                lastName: apellido,
+                document: documento,
+                photoURL: user.photoURL
+              }
+              await userHttpClient.post(datosUser);
+              pushLocation('/');
+            }
+          }
+        }
     }
 
     return ( 
@@ -41,7 +56,7 @@ const SignInDataUpload = () => {
                 <Typography component="h2" variant="h4">
                   {user.displayName}
                 </Typography>
-                        <form className={classes.form} onSubmit={handleSubmit}>
+                        <form className={classes.form}>
                             <TextField
                                 margin="normal"
                                 required
@@ -76,12 +91,17 @@ const SignInDataUpload = () => {
                                 autoComplete="documento"
                                 onChange={ ev => setdocumento(ev.target.value)}
                             />
+                            {error !== null && <div className='loginError'>
+                                                 <p className='loginError__text'>{error}</p>
+                                               </div>
+                            }
                             <Button
                                 type='submit'
                                 fullWidth
                                 variant="contained"
                                 color="primary"
-                                className={classes.submit}>
+                                className={classes.submit}
+                                onClick={handleSubmit}>
                                 Aceptar
                             </Button>
                         </form>
@@ -89,7 +109,7 @@ const SignInDataUpload = () => {
         </Container>
      );
 }
- 
+
 export default SignInDataUpload;
 
 //ESTILOS
