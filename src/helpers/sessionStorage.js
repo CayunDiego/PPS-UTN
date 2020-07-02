@@ -47,3 +47,11 @@ export const isExistVoteComment = id =>{
     const res =  actualVotes.some( idS => idS === id);
     return res;
 }
+
+export const isDeleted = state => {
+    if(state === 'Publicada' || state === 'Rechazada'){
+        return true;
+    } else {
+       return false;
+    }
+}

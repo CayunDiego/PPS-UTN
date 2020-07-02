@@ -35,7 +35,7 @@ const Complaint = ({complaint, children}) => {
             </Link>
             <div className='cardComplaint__actions'>
                 <p>Votos: {vote}</p>
-                <ButtonActionComplaint userC={USER} id={ID} setVote={setVote}/>
+                <ButtonActionComplaint userC={USER} id={ID} setVote={setVote} state={STATE}/>
             </div>
             <div className='cardComplaint__comment'>
                 {children}
